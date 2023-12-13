@@ -1,0 +1,97 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Главная страница</title>
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/flaticon.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    </head>
+
+	<body>
+		<section class="top-area">
+			<div class="header-area">
+			    <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy"  data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000">
+
+			        <div class="container">
+
+			            <div class="navbar-header">
+			                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+			                    <i class="fa fa-bars"></i>
+			                </button>
+			                <a class="navbar-brand" href="index.html">Dolphin<span>Rieltor</span></a>
+
+			            </div>
+			            <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
+			                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+			                    <li class="scroll"><a href="">Домашняя страница</a></li>
+								<li class="scroll only_for_quest"><a href="/auth">Авторизоваться</a></li>
+			                    <li class="scroll only_for_authed" style="display: none;"><a href="/auth">Личный кабинет</a></li>
+								<li class="scroll only_for_authed" style="display: none;"><a href="/logout">Выйти</a></li>
+			                </ul>
+			            </div>
+			        </div>
+			    </nav>
+
+			</div>
+		    <div class="clearfix"></div>
+
+		</section>
+		<section id="home" class="welcome-hero">
+			<div class="container">
+				<div class="welcome-hero-txt">
+					<h2>Лучшее место, чтобы<br> найти доступное жильё</h2>
+					<p>
+						Найдите лучшую квартиру, дом, загородную виллу.
+					</p>
+				</div>
+				<div class="welcome-hero-serch-box">
+					<div class="welcome-hero-form">
+						<div class="single-welcome-hero-form">
+							<h3>Что ищем?</h3>
+							<form action="index.html">
+								<input type="text" placeholder="Ex: Квартира, дом, загородный дом" />
+							</form>
+							<div class="welcome-hero-form-icon">
+								<i class="flaticon-list-with-dots"></i>
+							</div>
+						</div>
+						<div class="single-welcome-hero-form">
+							<h3>Локация</h3>
+							<form action="index.html">
+								<input type="text" placeholder="Ex: Оренбург" />
+							</form>
+							<div class="welcome-hero-form-icon">
+								<i class="flaticon-gps-fixed-indicator"></i>
+							</div>
+						</div>
+					</div>
+					<div class="welcome-hero-serch">
+						<button class="welcome-hero-btn">
+							 Найти
+						</button>
+					</div>
+				</div>
+			</div>
+
+		</section>
+		<section id="list-topics" class="list-topics">
+			<div class="container">
+				<div class="list-topics-content">
+					<ul style="text-align: center;">
+
+					</ul>
+				</div>
+			</div>
+
+		</section>
+
+	<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+
+    </body>
+
+</html>
