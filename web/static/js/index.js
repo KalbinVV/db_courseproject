@@ -2,9 +2,7 @@ window.onload = function() {
     $.ajax({
         url: "/users/me",
         success: function(response) {
-            parsed_response = JSON.parse(response)
-
-            if(!parsed_response.is_quest) {
+            if(!response.is_quest) {
                 $('.only_for_quest').hide(2)
                 $('.only_for_authed').show(2)
             }
@@ -12,15 +10,11 @@ window.onload = function() {
     })
 
     $.ajax({
-        url: "/housings_statistics",
+        url: "api/housings_statistics",
         success: function(response) {
             const container = document.querySelector('.list-topics-content ul')
 
-            const parsed_response = JSON.parse(response)
-
-            console.log(parsed_response)
-
-            for (key in parsed_response) {
+            for (key in response) {
                 const innerElement = `<li>
 							<div class="single-list-topics-content">
 								<div class="single-list-topics-icon">
