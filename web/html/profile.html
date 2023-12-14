@@ -1,0 +1,121 @@
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+</head>
+<body>
+<section class="top-area">
+    <div class="header-area">
+        <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy" data-minus-value-desktop="70"
+             data-minus-value-mobile="55" data-speed="1000">
+
+            <div class="container">
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="index.html">Dolphin<span>Rieltor</span></a>
+
+                </div>
+                <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
+                    <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                        <li class="scroll"><a href="">Домашняя страница</a></li>
+                        <li class="scroll only_for_quest"><a href="/auth">Авторизоваться</a></li>
+                        <li class="scroll only_for_authed" style="display: none;"><a href="/auth">Личный кабинет</a>
+                        </li>
+                        <li class="scroll only_for_authed" style="display: none;"><a href="/logout">Выйти</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+</section>
+<div class="bg"></div>
+<div class="main" align="center">
+    <img class="pf" src="https://icollector.000webhostapp.com/widget/profile/images/iexp_coin.jpg"/>
+    <div class="contain">
+        <div class="i_space"></div>
+        <h2 class="title">@iExperiment</h2>
+        <p class="summary">
+            <tag>#iExperiment</tag>
+            is a small project, built for future asset storage.
+        </p>
+        <a style="display:inline-block;" class="btn" href="https://google.com/maps/" title="Maps" alt="Maps"
+           target="_blank">
+            <i class="fa fa-map-marker cbn" aria-hidden="true"></i>
+        </a>
+        <a style="display:inline-block;" class="btn" href="mailto:iyoexperiment@gmail.com" title="Gmail" alt="Gmail"
+           target="_blank">
+            <i class="fa fa-envelope-o cbn" aria-hidden="true"></i>
+        </a>
+    </div>
+    <div class="contain_2">
+        <div class="row">
+            <div class="column">
+                <div class="i_contain" onclick="button1()">
+                    <div class="i_cards">
+                        <img class="icon_logo" title="Facebook" alt="Facebook"
+                             src="https://icollector.000webhostapp.com/widget/profile/images/logo/facebook.png"/>
+                        <h2 class="i_title">Facebook</h2>
+                        <p class="i_summary">https://facebook.com/iexperimen</p>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="i_contain" onclick="button2()">
+                    <div class="i_cards">
+                        <img class="icon_logo" title="Twitter" alt="Twitter"
+                             src="https://icollector.000webhostapp.com/widget/profile/images/logo/twitter.png"/>
+                        <h2 class="i_title">Twitter</h2>
+                        <p class="i_summary">https://twitter.com/iexperimen</p>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="i_contain" onclick="button3()">
+                    <div class="i_cards">
+                        <img class="icon_logo" title="Instagram" alt="Instagram"
+                             src="https://icollector.000webhostapp.com/widget/profile/images/logo/instagram.jpeg"/>
+                        <h2 class="i_title">Instagram</h2>
+                        <p class="i_summary">https://instagram.com/official.iexperiment</p>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="i_contain" onclick="button4()">
+                    <div class="i_cards">
+                        <img class="icon_logo" title="Github" alt="Github"
+                             src="https://icollector.000webhostapp.com/widget/profile/images/logo/github.png"/>
+                        <h2 class="i_title">Github</h2>
+                        <p class="i_summary">https://github.com/iexperimen</p>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="i_contain" onclick="button5()">
+                    <div class="i_cards">
+                        <img class="icon_logo" title="Codepen" alt="Codepen"
+                             src="https://icollector.000webhostapp.com/widget/profile/images/logo/codepen.webp"/>
+                        <h2 class="i_title">Codepen</h2>
+                        <p class="i_summary">https://codepen.io/iexperimen</p>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="i_contain" onclick="button6()">
+                    <div class="i_cards">
+                        <img class="icon_logo" title="iCollector" alt="iCollector"
+                             src="https://icollector.000webhostapp.com/widget/profile/images/logo/browser.png"/>
+                        <h2 class="i_title">iCollector</h2>
+                        <p class="i_summary">https://bit.ly/iExperiment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

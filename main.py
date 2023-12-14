@@ -3,7 +3,7 @@ import os.path
 from flask import Flask, render_template
 
 from models import db
-from pages import auth, users, api
+from pages import auth, users, api, profiles
 
 app = Flask(__name__,
             template_folder=os.path.abspath('./web/html'),
@@ -30,10 +30,14 @@ def main() -> None:
         # Users sections
         '/users/me': (users.users_me, ['GET']),
         # Api section
-        '/api/housings_statistic': (api.housings_statistic, ['GET'])
+        '/api/housings_statistic': (api.housings_statistic, ['GET']),
+        # Profiles section
+        '/profile': (profiles.my_profile, ['GET'])
     }
 
     for routing, args in pages_routing.items():
+        print(f'Page "{routing}" registered with args: {args}')
+
         app.add_url_rule(routing, routing[1:], args[0], methods=args[1])
 
     app.run()
