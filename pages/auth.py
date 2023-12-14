@@ -21,7 +21,9 @@ def register() -> str | Response:
     user = models.User(username=request.form.get('username'),
                        hashed_password=hashlib.sha256(request.form.get('password').encode()).hexdigest(),
                        email=request.form.get('email'),
-                       phone_number=request.form.get('phone_number')
+                       phone_number=request.form.get('phone_number'),
+                       first_name=request.form.get('first_name'),
+                       second_name=request.form.get('second_name')
                        )
 
     models.db.session.add(user)

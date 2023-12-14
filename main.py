@@ -9,7 +9,7 @@ app = Flask(__name__,
             template_folder=os.path.abspath('./web/html'),
             static_folder=os.path.abspath('./web/static'))
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///project.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql+psycopg://user:pass@db/db"
 db.init_app(app)
 
 
@@ -40,7 +40,7 @@ def main() -> None:
 
         app.add_url_rule(routing, routing[1:], args[0], methods=args[1])
 
-    app.run()
+    app.run(host="0.0.0.0")
 
 
 if __name__ == "__main__":
