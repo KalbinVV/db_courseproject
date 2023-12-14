@@ -1,5 +1,3 @@
-import json
-
 from flask import request
 
 from security import is_user_authed, get_user
