@@ -3,7 +3,10 @@ import os.path
 from flask import Flask, render_template
 
 from models import db
-from pages import auth, users, api, profiles
+from pages import auth, users, profile
+from security import is_user_authed
+from utils.housings_utils import get_housings_statistic
+from utils.locations_utils import get_settlements
 
 app = Flask(__name__,
             template_folder=os.path.abspath('./web/html'),
@@ -15,7 +18,13 @@ db.init_app(app)
 
 @app.route('/')
 def index() -> str:
-    return render_template('index.html')
+    housings_types = [{'name': key,
+                       'variables': item}
+                      for key, item in get_housings_statistic().items()]
+
+    return render_template('index.html', housings_types=housings_types,
+                           settlements=get_settlements(),
+                           is_authed=is_user_authed())
 
 
 def main() -> None:
@@ -30,17 +39,18 @@ def main() -> None:
         # Users sections
         '/users/me': (users.users_me, ['GET']),
         # Api section
-        '/api/housings_statistic': (api.housings_statistic, ['GET']),
         # Profiles section
-        '/profile': (profiles.my_profile, ['GET'])
+        '/profile': (profile.my_profile, ['GET']),
+        '/my_housings': (profile.my_housings, ['GET']),
+        '/create_housing': (profile.create_housing, ['GET', 'POST'])
     }
 
     for routing, args in pages_routing.items():
-        print(f'Page "{routing}" registered with args: {args}')
+        print(f'Page "{routing}" with name "{args[0].__name__}" registered with args: {args}')
 
-        app.add_url_rule(routing, routing[1:], args[0], methods=args[1])
+        app.add_url_rule(routing, args[0].__name__, args[0], methods=args[1])
 
-    app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0", debug=True)
 
 
 if __name__ == "__main__":

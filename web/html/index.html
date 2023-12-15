@@ -1,96 +1,120 @@
 <!doctype html>
 <html class="no-js" lang="en">
 
-    <head>
-        <meta charset="utf-8">
-        <title>Главная страница</title>
+<head>
+    <meta charset="utf-8">
+    <title>Главная страница</title>
 
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/flaticon.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
-    </head>
+</head>
 
-	<body>
-		<section class="top-area">
-			<div class="header-area">
-			    <nav class="navbar navbar-default bootsnav navbar-sticky navbar-scrollspy"  data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000">
+<body>
+<section class="top-area">
+    <div class="header-area">
+        <nav class="navbar navbar-default bootsnav navbar-sticky navbar-scrollspy" data-minus-value-desktop="70"
+             data-minus-value-mobile="55" data-speed="1000">
 
-			        <div class="container">
+            <div class="container">
 
-			            <div class="navbar-header">
-			                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-			                    <i class="fa fa-bars"></i>
-			                </button>
-			                <a class="navbar-brand" href="index.html">Dolphin<span>Rieltor</span></a>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="index.html">Dolphin<span>Rieltor</span></a>
 
-			            </div>
-			            <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
-			                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-			                    <li class="scroll"><a href="">Домашняя страница</a></li>
-								<li class="scroll only_for_quest"><a href="/auth">Авторизоваться</a></li>
-			                    <li class="scroll only_for_authed" style="display: none;"><a href="/profile">Личный кабинет</a></li>
-								<li class="scroll only_for_authed" style="display: none;"><a href="/logout">Выйти</a></li>
-			                </ul>
-			            </div>
-			        </div>
-			    </nav>
+                </div>
+                <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
+                    <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                        <li class="scroll"><a href="">Домашняя страница</a></li>
 
-			</div>
+                        {% if not is_authed %}
+                        <li class="scroll only_for_quest"><a href="/auth">Авторизоваться</a></li>
+                        {% endif %}
 
-		</section>
-		<section id="home" class="welcome-hero">
-			<div class="container">
-				<div class="welcome-hero-txt">
-					<h2>Лучшее место, чтобы<br> найти доступное жильё</h2>
-					<p>
-						Найдите лучшую квартиру, дом, загородную виллу.
-					</p>
-				</div>
-				<div class="welcome-hero-serch-box">
-					<div class="welcome-hero-form">
-						<div class="single-welcome-hero-form">
-							<h3>Что ищем?</h3>
-							<form action="index.html">
-								<input type="text" placeholder="Ex: Квартира, дом, загородный дом" />
-							</form>
-							<div class="welcome-hero-form-icon">
-								<i class="flaticon-list-with-dots"></i>
-							</div>
-						</div>
-						<div class="single-welcome-hero-form">
-							<h3>Локация</h3>
-							<form action="index.html">
-								<input type="text" placeholder="Ex: Оренбург" />
-							</form>
-							<div class="welcome-hero-form-icon">
-								<i class="flaticon-gps-fixed-indicator"></i>
-							</div>
-						</div>
-					</div>
-					<div class="welcome-hero-serch">
-						<button class="welcome-hero-btn">
-							 Найти
-						</button>
-					</div>
-				</div>
-			</div>
+                        {% if is_authed %}
+                        <li class="scroll only_for_authed"><a href="/profile">Личный кабинет</a>
+                        </li>
+                        <li class="scroll only_for_authed"><a href="/logout">Выйти</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
-		</section>
-		<section id="list-topics" class="list-topics">
-			<div class="container">
-				<div class="list-topics-content">
-					<ul style="text-align: center;">
+    </div>
 
-					</ul>
-				</div>
-			</div>
+</section>
+<section id="home" class="welcome-hero">
+    <div class="container">
+        <div class="welcome-hero-txt">
+            <h2>Лучшее место, чтобы<br> найти доступное жильё</h2>
+            <p>
+                Найдите лучшую квартиру, дом, загородную виллу.
+            </p>
+        </div>
+        <div class="welcome-hero-serch-box">
+            <div class="welcome-hero-form">
+                <div class="single-welcome-hero-form">
+                    <h3>Что ищем?</h3>
+                    <form action="index.html">
+                        <select>
+                            {% for housing_type in housings_types %}
+                            <option value="{{ housing_type['id'] }}">{{ housing_type['name'] }}</option>
+                            {% endfor %}
+                        </select>
+                    </form>
+                    <div class="welcome-hero-form-icon">
+                        <i class="flaticon-list-with-dots"></i>
+                    </div>
+                </div>
+                <div class="single-welcome-hero-form">
+                    <h3>Локация</h3>
+                    <form action="index.html">
+                        <select>
+                            {% for settlement in settlements %}
+                            <option value="{{ settlement['id'] }}">{{ settlement['name'] }}</option>
+                            {% endfor %}
+                        </select>
+                    </form>
+                    <div class="welcome-hero-form-icon">
+                        <i class="flaticon-gps-fixed-indicator"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="welcome-hero-serch">
+                <button class="welcome-hero-btn">
+                    Найти
+                </button>
+            </div>
+        </div>
+    </div>
 
-		</section>
+</section>
+<section id="list-topics" class="list-topics">
+    <div class="container">
+        <div class="list-topics-content">
+            <ul style="text-align: center;">
+                {% for housing_type in housings_types %}
+                <li>
+                    <div class="single-list-topics-content">
+                        <div class="single-list-topics-icon">
+                            <i class="flaticon-restaurant"></i>
+                        </div>
+                        <h2><a href="#">{{ housing_type['name'] }}</a></h2>
+                        <p>{{ housing_type['variables']['count'] }}</p>
+                        <p>{{ housing_type['variables']['description'] }}</p>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 
-	<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
-	<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</section>
 
-    </body>
+</body>
 
 </html>

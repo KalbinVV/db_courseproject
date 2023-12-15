@@ -1,23 +1,22 @@
 from functools import wraps
 from typing import Callable
 
-import flask
 import jwt
-from flask import Response, make_response
+from flask import Response, make_response, request
 
 import models
 
 
-def has_token(request: flask.request) -> bool:
+def has_token() -> bool:
     return 'token' in request.cookies
 
 
-def is_user_authed(request: flask.request):
-    if not has_token(request):
+def is_user_authed():
+    if not has_token():
         return False
 
     try:
-        decode_token(request)
+        decode_token()
 
         return True
     except (Exception, ):
@@ -30,7 +29,7 @@ def create_token(user: models.User) -> str:
     return encoded_jwt
 
 
-def decode_token(request: flask.request) -> int:
+def decode_token() -> int:
     jwt_token = request.cookies.get('token')
 
     decoded_jwt = jwt.decode(jwt_token, "secret", algorithms=["HS256"])
@@ -38,14 +37,14 @@ def decode_token(request: flask.request) -> int:
     return int(decoded_jwt['user_id'])
 
 
-def get_user(request: flask.request) -> models.User:
-    return models.User.query.filter_by(id=decode_token(request)).first_or_404()
+def get_user() -> models.User:
+    return models.User.query.filter_by(id=decode_token()).first_or_404()
 
 
 def should_be_authed(function: Callable) -> Callable:
     @wraps(function)
     def decorator(*args, **kwargs) -> Response | str:
-        if not is_user_authed(flask.request):
+        if not is_user_authed():
             return make_response("You are not authed", 400)
 
         return function(*args, **kwargs)

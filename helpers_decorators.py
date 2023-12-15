@@ -9,7 +9,7 @@ from security import has_token
 def redirect_to_index_if_authed(function: Callable) -> Callable:
     @wraps(function)
     def decorator(*args, **kwargs):
-        if has_token(request):
+        if has_token():
             return redirect(url_for('index'))
 
         return function(*args, **kwargs)
