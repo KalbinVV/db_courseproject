@@ -3,6 +3,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/select2.min.css') }}">
 </head>
 <body>
 <section class="top-area">
@@ -34,29 +35,77 @@
 </section>
 <br>
 <div class="main" align="center">
-    <img class="pf" src="https://icollector.000webhostapp.com/widget/profile/images/iexp_coin.jpg"/>
+    <img class="pf" src=""/>
     <div class="contain">
         <div class="i_space"></div>
         <h2 class="title">{{ username }}</h2>
         <p class="summary">
             <tag>Добавить новое жильё</tag>
         </p>
-        <p>Введите имя: </p>
-        <p>
-            <div style="text-align: center;">
-                <input />
+        <form id="add_housing_form">
+            <p>Выберете тип жилья: </p>
+            <select class="housings_types_select">
+                {% for housing_type in housings_types %}
+                <option value="{{ housing_type.id }}"
+                        data-department_number_required="{{ housing_type.department_number_required }}">
+                    {{ housing_type.name }}
+                </option>
+                {% endfor %}
+            </select>
+            <p>Введите имя: </p>
+            <p>
+            <div style="text-align: center;" id="name_input">
+                <input name="name" id="name" required/>
             </div>
-        </p>
-        <hr>
-        <p>Введите краткое описание: </p>
-        <p>
-            <div style="text-align: center;">
-                <textarea style="resize: none; width: 30rem; height: 20rem;"></textarea>
+            <hr>
+            <p>Введите краткое описание: </p>
+            <p>
+            <div style="text-align: center;" id="description_textarea">
+                <textarea style="resize: none; width: 30rem; height: 20rem;" name="description" id="description" required></textarea>
             </div>
-        </p>
-        <hr>
-        <p><button type="submit" class="link_button">Следующий шаг</button></p>
+
+            <p>Выберете страну: </p>
+            <p>
+                <select class="countries_select">
+                    {% for country in countries %}
+                    <option value="{{ country['id'] }}">{{ country['name'] }}</option>
+                    {% endfor %}
+                </select>
+            </p>
+
+            <p>Выберете нас. пункт: </p>
+            <p>
+                <select class="settlements_select">
+                </select>
+            </p>
+
+            <p>Выберете улицу: </p>
+            <p>
+                <select class="streets_select" name="street_id" required>
+                </select>
+            </p>
+
+            <p>Введите номер дома: </p>
+            <p>
+                <input name="house_number" id="house_number" required/>
+            </p>
+
+            <div class="department_number_container">
+                <p>Введите номер квартиры: </p>
+                <p>
+                    <input name="department_number"/>
+                </p>
+            </div>
+
+            <p>
+                <button type="submit" class="link_button">Добавить жильё</button>
+            </p>
+        </form>
     </div>
 </div>
+
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/select2.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/create_housing.js') }}"></script>
 </body>
 </html>

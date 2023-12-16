@@ -40,14 +40,14 @@ class Countries(db.Model):
     __tablename__ = 'countries'
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    name: Mapped[str] = mapped_column(String(40), nullable=False)
+    name: Mapped[str] = mapped_column(String(80), nullable=False)
 
 
 class Settlements(db.Model):
     __tablename__ = 'settlements'
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    name: Mapped[str] = mapped_column(String(20), nullable=False)
+    name: Mapped[str] = mapped_column(String(80), nullable=False)
 
     country_id: Mapped[int] = mapped_column(ForeignKey('countries.id'), nullable=False, index=True)
     settlement_type_id: Mapped[int] = mapped_column(ForeignKey('settlements_types.id'), nullable=False)
@@ -64,7 +64,7 @@ class Streets(db.Model):
     __tablename__ = 'streets'
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    name: Mapped[str] = mapped_column(String(20), nullable=False)
+    name: Mapped[str] = mapped_column(String(80), nullable=False)
 
     settlement_id: Mapped[int] = mapped_column(ForeignKey('settlements.id'), nullable=False, index=True)
     street_type_id: Mapped[int] = mapped_column(ForeignKey('streets_types.id'), nullable=False)
@@ -87,6 +87,7 @@ class HousingsTypes(db.Model):
     name: Mapped[str] = mapped_column(String(40), nullable=False)
     description: Mapped[str] = mapped_column(String(100), nullable=False)
     icon: Mapped[str] = mapped_column(String(40), nullable=True)
+    required_department_number: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
 
 
 class Housings(db.Model):
@@ -94,6 +95,7 @@ class Housings(db.Model):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     name: Mapped[str] = mapped_column(String(100), nullable=False)
+    description: Mapped[str] = mapped_column(String(255), nullable=False)
 
     housing_type_id: Mapped[int] = mapped_column(ForeignKey('housings_types.id'), nullable=False)
     owner_id: Mapped[int] = mapped_column(ForeignKey('users.id'), nullable=False, index=True)

@@ -45,24 +45,17 @@
     </div>
     <div class="contain_2">
         <div class="row">
+            {% for housing in housings %}
             <div class="column">
                 <div class="i_contain" onclick="button1()">
                     <div class="i_cards">
                         <img class="icon_logo" alt="Жильё"/>
-                        <h2 class="i_title">Жильё</h2>
-                        <p class="i_summary">Жильё</p>
+                        <h2 class="i_title">{{ housing.name }}</h2>
+                        <p class="i_summary">{{ housing.description }}</p>
                     </div>
                 </div>
             </div>
-            <div class="column">
-                <div class="i_contain" onclick="button2()">
-                    <div class="i_cards">
-                        <img class="icon_logo" alt="Жильё"/>
-                        <h2 class="i_title">Жильё</h2>
-                        <p class="i_summary">Жильё</p>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
 
         </div>
     </div>

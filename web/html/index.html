@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/select2.min.css') }}">
 
 </head>
 
@@ -55,33 +56,27 @@
                 Найдите лучшую квартиру, дом, загородную виллу.
             </p>
         </div>
-        <div class="welcome-hero-serch-box">
+        <div class="welcome-hero-search-box">
             <div class="welcome-hero-form">
                 <div class="single-welcome-hero-form">
-                    <h3>Что ищем?</h3>
+                    <h4>Что ищем?</h4>
                     <form action="index.html">
-                        <select>
+                        <select class="housings_types_select">
                             {% for housing_type in housings_types %}
                             <option value="{{ housing_type['id'] }}">{{ housing_type['name'] }}</option>
                             {% endfor %}
                         </select>
                     </form>
-                    <div class="welcome-hero-form-icon">
-                        <i class="flaticon-list-with-dots"></i>
-                    </div>
                 </div>
                 <div class="single-welcome-hero-form">
-                    <h3>Локация</h3>
+                    <h4>Локация: </h4>
                     <form action="index.html">
-                        <select>
+                        <select class="settlements_select">
                             {% for settlement in settlements %}
                             <option value="{{ settlement['id'] }}">{{ settlement['name'] }}</option>
                             {% endfor %}
                         </select>
                     </form>
-                    <div class="welcome-hero-form-icon">
-                        <i class="flaticon-gps-fixed-indicator"></i>
-                    </div>
                 </div>
             </div>
             <div class="welcome-hero-serch">
@@ -114,6 +109,10 @@
     </div>
 
 </section>
+
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/select2.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
 
 </body>
 

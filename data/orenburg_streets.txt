@@ -1,0 +1,1489 @@
+Дальний переулок	residential
+улица Теряна Ваана	tertiary
+улица Берёзовая Ростошь	tertiary
+Струновая улица	residential
+улица Учителей	service
+Полтавская улица	residential
+Самолётная улица	unclassified
+Глухой переулок	residential
+Кленовая улица	residential
+улица Брыкина	residential
+улица Кизилова	service
+проезд Мясокомбината	unclassified
+Ягодная улица	service
+Омская улица	residential
+Урюпинский переулок	residential
+Трофимовский переулок	residential
+улица Степана Разина	secondary
+улица Войкова	residential
+улица Проезд 13	service
+Ивановский переулок	residential
+Белогорская улица	residential
+Набережная улица	pedestrian
+Невская улица	residential
+Заводская улица	tertiary
+Северный проезд	secondary
+Алексеевский переулок	residential
+ул. 15 линия	service
+улица 11-я Линия	residential
+Нагорная улица	service
+Черёмуховая улица	residential
+улица 41-я Линия	residential
+Коммунальный переулок	residential
+2-й Виноградный проезд	residential
+улица Надежды	residential
+улица Садовое Кольцо	tertiary
+улица Белинского	residential
+Павловская улица	residential
+Кардонная улица	residential
+улица Островского	residential
+Природная улица	service
+Ольховая улица	tertiary
+Ленинская улица	tertiary
+Вишневая улица	residential
+улица Бурзянцева	tertiary
+Зелёная улица	service
+Пёстрый переулок	residential
+Бакинская улица	residential
+Яицкая улица	unclassified
+улица 79-я Линия	residential
+улица Декабристов	residential
+Туркестанская улица	secondary
+Обводная улица	residential
+улица Нежинское шоссе	secondary
+Некрасовский переулок	residential
+ул. 12 линия	service
+Северная улица	unclassified
+улица Постникова	primary
+Регенераторная улица	residential
+2-я Семафорная улица	residential
+улица Красной Делегатки	residential
+Уральская улица	unclassified
+улица Зиновьева	residential
+Волочаевская улица	residential
+Химическая улица	tertiary
+улица Егошина	service
+ул. 22 линия	service
+Жигулёвская улица	residential
+Караванная улица	tertiary
+проезд 4-й Ряд	residential
+Кривой переулок	residential
+улица Соболева Гора	tertiary
+Астраханская улица	tertiary
+Овощеводческая улица	residential
+Изящная улица	service
+Дружная улица	service
+1-й Восточный проезд	residential
+улица Ходакова	residential
+улица Проезд 6	service
+улица Маяковского	residential
+Вилюйский переулок	residential
+Пушкинская улица	residential
+Культурная улица	service
+улица 13-й квартал	service
+улица Дорофеева	residential
+Снежный переулок	residential
+Облепиховая улица	residential
+улица М.Фадеева	pedestrian
+переулок Гайдара	residential
+улица Ковалевской	residential
+Апрельская улица	service
+Зиминская улица	residential
+улица 1-й проезд	service
+Ростошинская улица	secondary
+Донецкая улица	unclassified
+Каргалинская улица	residential
+Цветочный бульвар	tertiary
+улица Маргелова	service
+улица Юных Ленинцев	tertiary
+Мирнинская улица	residential
+"Мансардный переулок, 3-й проезд"	residential
+Жемчужный переулок	service
+Сельский переулок	residential
+Белградская улица	residential
+ул. 7 линия	service
+улица Соболева Гора	residential
+Ярославский переулок	residential
+улица 27-я Линия	residential
+Хлеборобная улица	residential
+улица Маршака	unclassified
+2-й Совхозный проезд	residential
+Степной переулок	residential
+34-я улица	residential
+Рубежинская улица	residential
+улица Суворова	residential
+улица Цвиллинга	unclassified
+Волгоградская улица	secondary
+улица 69-я Линия	residential
+улица 4 Апреля	residential
+Жасминовая улица	service
+улица Кичигина	residential
+Водосточная улица	residential
+Хабаровская улица	residential
+Депутатская улица	residential
+Меновинская улица	residential
+улица Калинина	residential
+Широкая улица	tertiary
+Селивановский переулок	unclassified
+улица 16-й квартал	residential
+Днепровская улица	residential
+Станочный переулок	secondary
+Ленинградская улица	unclassified
+Магистральная улица	unclassified
+улица Неплюева	service
+Малиновая улица	service
+Пустой переулок	residential
+Дачная улица	residential
+улица Соболева Гора	unclassified
+Добычной переулок	residential
+улица Красная Площадь	residential
+Диспансерный переулок	residential
+Гранитный переулок	residential
+Гражданская улица	residential
+Пролетарская улица	tertiary
+Телевизионный переулок	residential
+площадь 1 Мая	unclassified
+Ладожский переулок	residential
+Ромашковая улица	residential
+Буровой переулок	residential
+улица Братьев Хусаиновых	tertiary
+Светлая улица	service
+Заовражная улица	service
+Иванин переулок	service
+Томская улица	residential
+улица Зорянка	tertiary
+набережная реки Урал	pedestrian
+"Мансардный переулок, 2-й проезд"	residential
+Медногорская улица	unclassified
+Беляевское шоссе	primary
+Парковая улица	residential
+Красная улица	residential
+Парковая улица	service
+2-я Береговая улица	residential
+Шарлыкское шоссе	primary
+Ижевская улица	tertiary
+Тыловая улица	unclassified
+Весенняя улица	residential
+Парковый проспект	pedestrian
+Базовая улица	unclassified
+улица Новосёлов	residential
+улица Красного Казачества	residential
+Ранетная улица	service
+Оренбургская улица	residential
+Тупиковая улица	service
+Зелёный проезд	service
+Трудовая улица	residential
+улица Бебеля	tertiary
+Сапожный переулок	residential
+Ленская улица	residential
+Мало-Мельничная улица	tertiary
+улица 24-я Линия	residential
+Ижевский переулок	residential
+Второй проезд	unclassified
+Пионерская улица	residential
+2-я Пугачёвская улица	residential
+улица Гора Маяк	residential
+Путепроводная улица	service
+Фабричный переулок	residential
+Открытая улица	residential
+Сторожевая улица	service
+Сливовая улица	service
+Кожевенный переулок	residential
+Отрадная улица	residential
+улица 37 ряд	service
+Пермская улица	residential
+Немовская улица	unclassified
+улица 3-й проезд	service
+Промышленная улица	unclassified
+Маловская улица	residential
+Азовская улица	unclassified
+улица 2-й Маячный Спуск	residential
+Родниковый переулок	residential
+Хлеборобная улица	service
+улица 12-й проезд	residential
+Новокузнечная улица	residential
+Валдайская улица	unclassified
+улица Л.Толстого	residential
+улица Ростроповича	residential
+улица Черепановых	unclassified
+Автодром	service
+Ардатовский переулок	residential
+улица 8-й проезд	service
+Грушевая улица	service
+проспект Братьев Коростелёвых	primary
+Каслинская улица	residential
+Домбаровская улица	residential
+улица Шевченко	secondary
+Регенераторная улица	tertiary
+2-й Восточный переулок	residential
+Карский проезд	residential
+улица Нефтяников	residential
+Южная улица	service
+3-й Дубовый проезд	residential
+улица Плещеева	residential
+улица 19-й квартал	residential
+улица Связистов	service
+улица 12-я Линия	residential
+улица Хлопуши	residential
+1-й Сенной проезд	residential
+Мало-Восточная улица	residential
+улица Курчатова	residential
+улица 9 Января	unclassified
+улица 10-я Линия	tertiary
+Облепиховая улица	service
+улица Ветеранов	residential
+улица ВВ Николаева	tertiary
+улица Правды	residential
+улица Кима	tertiary
+ул. 6-я линия	service
+улица 61-я Линия	residential
+Автодромная улица	tertiary
+улица Механизаторов	unclassified
+улица 7-я Линия	residential
+Байкальская улица	residential
+1-й проезд	residential
+Флотский переулок	residential
+2-й проезд	residential
+Луговая улица	unclassified
+улица Обороны	residential
+Алычёвая улица	service
+улица Чапаева	unclassified
+Соловьиная улица	service
+улица Ковалевской	tertiary
+4-й проезд	residential
+улица Орджоникидзе	residential
+Кооперативная улица	residential
+Полевой переулок	residential
+улица Чкалова	primary
+улица Андреева	residential
+Илекская улица	residential
+Немовская улица	residential
+Владивостокская улица	tertiary
+улица Крылова	residential
+улица 60 лет Октября	secondary
+2-й Сенной проезд	residential
+ул. 1 линия	service
+улица Просвещения	residential
+Аэродромная улица	service
+3-я линия улица	service
+улица Багаева	residential
+переулок Свободина	unclassified
+Красногорская улица	residential
+Главная улица	service
+2-й Ромашковый проезд	service
+Центральная улица	unclassified
+Народная улица	unclassified
+Сахалинская улица	tertiary
+Днепропетровская улица	residential
+Средний переулок	residential
+Люблянская улица	residential
+Карачинская улица	tertiary
+улица Макаровой-Мутновой	residential
+Земляничная улица	service
+Гончарная улица	residential
+улица Автомобилистов	unclassified
+Краснодарская улица	tertiary
+Цветочный переулок	service
+Холмский переулок	service
+Баргузинская улица	unclassified
+улица 30-я Линия	residential
+ул. 1 линия	unclassified
+1-й Крымский проезд	residential
+Осенний переулок	residential
+улица Богдана Хмельницкого	secondary
+улица Гаранькина	secondary
+улица Проезд 12	service
+Ялтинская улица	unclassified
+Костромской переулок	residential
+Невельская улица	unclassified
+Актюбинская улица	residential
+Пражская улица	residential
+Московская улица	residential
+Межевая улица	service
+Тепловозная улица	residential
+Дачная улица	unclassified
+2-й Дубовый проезд	residential
+Нагорная улица	residential
+улица 28-я Линия	residential
+Морковная улица	service
+Кубанская улица	tertiary
+Западная улица	residential
+ул. 9 линия	service
+Каштановая улица	residential
+улица Лабужского	residential
+улица Чуносова	residential
+Газпромовская улица	secondary
+"Самарская улица, 1-й проезд"	residential
+Всесоюзная улица	residential
+Северная улица	residential
+улица Тимирязева	residential
+Римская улица	unclassified
+Алтайская улица	unclassified
+Школьный переулок	residential
+Ромашковая улица	service
+Кольцевая улица	service
+Горный переулок	residential
+улица 15-й квартал	residential
+Иртышская улица	residential
+улица 374-й километр	residential
+Двинская улица	residential
+1-я Линейная улица	residential
+улица Садовое Кольцо	residential
+Самолётная улица	tertiary
+Таловая улица	residential
+улица Кольцова	residential
+Мало-Восточная улица	unclassified
+улица Чапаева	residential
+Нижний проезд	unclassified
+Невельская улица	tertiary
+Енисейская улица	residential
+улица 35 ряд	service
+Одесская улица	tertiary
+Лесная улица	service
+Ярославская улица	residential
+Интернациональная улица	residential
+улица Сурикова	residential
+Тихая улица	residential
+Озёрный переулок	residential
+Казань — Оренбург — Акбулак — граница с Республикой Казахстан	trunk
+70-й переулок	residential
+Луговая улица	residential
+Чебеньковская улица	tertiary
+Садовая улица	residential
+Островная улица	residential
+4-я линия улица	service
+Таганрогский переулок	residential
+улица Маврицкого	secondary
+улица 17-й квартал	residential
+улица Строителей	residential
+Токарный переулок	residential
+улица 21-й квартал	residential
+улица Попкова	residential
+проспект Дзержинского	secondary
+улица Рощина	residential
+Липовая улица	unclassified
+Ялтинская улица	residential
+Шоссейная улица	tertiary
+Заводская улица	residential
+2-я Кишинёвская улица	residential
+улица Подурова	residential
+Индивидуальная улица	residential
+Немовская улица	tertiary
+Ясеневая улица	residential
+9-я линия улица	service
+улица 20-я Линия	residential
+Зелёная улица	unclassified
+улица Мичурина	residential
+Рабочая улица	residential
+улица Желябова	unclassified
+Сакмарский переулок	residential
+Изобильная улица	residential
+Розовая улица	residential
+Дорожный переулок	residential
+Абдулинская улица	residential
+Кардонный переулок	residential
+Орская улица	residential
+улица Олега Кошевого	residential
+Средняя улица	residential
+ул. 2 линия	service
+Хлебосольная улица	residential
+Шоссейная улица	secondary
+улица 35-я Линия	residential
+улица Конституции СССР	secondary
+Крайний переулок	residential
+улица 33 ряд	service
+ул. 24 линия	service
+улица 32-я Линия	residential
+Телеграфный переулок	residential
+Тополевая улица	residential
+улица Чернышёва	unclassified
+улица Челюскинцев	primary
+Авиагородок 2-й	service
+Замкнутый переулок	residential
+Привольный переулок	residential
+Пограничная улица	service
+Ровинская улица	residential
+Детский переулок	residential
+Солнечный переулок	residential
+Вишнёвая улица	service
+Дальнореченская улица	tertiary
+Уютная улица	residential
+проезд 1-й Ряд	residential
+улица Проезд 14	service
+Илекская улица	tertiary
+улица 10-й квартал	residential
+Пикетная улица	residential
+Женевская улица	residential
+улица Гая	tertiary
+Черниговская улица	residential
+Братиславская улица	residential
+Пригородная улица	residential
+Сызранская улица	residential
+Комсомольская улица	secondary
+улица Есимова	tertiary
+Совхозная улица	secondary
+Заречная улица	residential
+11-я Линия	unclassified
+переулок Каширина	residential
+Онежский переулок	residential
+Рыбаковская улица	secondary
+Авачинская улица	residential
+Саракташская улица	unclassified
+Газпромовская улица	tertiary
+Советская улица	pedestrian
+улица Карла Маркса	residential
+Неплюевский переулок	residential
+Квартальный переулок	residential
+улица Проезд 1	service
+Ткацкая улица	service
+улица М.Горького	primary
+Малиновая улица	residential
+2-й проезд Чехова	residential
+улица Коминтерна	residential
+улица Гоголя	residential
+улица Мехколонны	tertiary
+улица Корецкой	unclassified
+переулок Игоря Третьяка	residential
+Тавлинский переулок	residential
+2-й Паромный переулок	residential
+Безымянная улица	service
+улица Кичигина	unclassified
+Крутой переулок	residential
+Силовая улица	service
+Каретная улица	residential
+улица 13-й квартал	residential
+Владивостокская улица	residential
+Долинная улица	residential
+Казанская улица	unclassified
+Тихвинский переулок	residential
+Мельничный переулок	unclassified
+Минская улица	secondary
+Вольная улица	residential
+улица Попова	tertiary
+Школьная улица	residential
+Талая улица	residential
+Лесная улица	residential
+Вишневая улица	service
+Набережная улица	service
+улица 36 ряд	service
+3-й Ромашковый проезд	service
+Сенная улица	residential
+1-я Береговая улица	residential
+улица Ветеранов Труда	tertiary
+улица Теряна Ваана	residential
+Крымский переулок	residential
+Светлый проезд	residential
+Венский бульвар	residential
+Горсоветская улица	service
+улица Донгузская 3-й проезд	unclassified
+улица Монтажников	secondary
+3-й Паромный переулок	unclassified
+Чистопольская улица	tertiary
+улица Парижской Коммуны	residential
+улица Нефтяников	service
+Паровозная улица	residential
+Октябрьская улица	residential
+Коленчатый переулок	residential
+Таманский переулок	residential
+улица Даля	residential
+6-я Береговая улица	residential
+Путепроводная улица	residential
+2-я линия улица	service
+Вяземский переулок	residential
+Девонская улица	service
+Рощинская улица	residential
+5-й проезд	residential
+Украинский переулок	residential
+Большой проезд	residential
+улица Родимцева	secondary
+Авдеевский переулок	unclassified
+Милиционерская улица	residential
+3-й проезд Расковой	residential
+Культурная улица	residential
+3-й проезд	residential
+Тупиковый переулок	service
+Кировская улица	service
+ул. 7-я линия	service
+Третий проезд	service
+Ташкентская улица	tertiary
+улица Блока	residential
+4-й Паромный переулок	residential
+7-й Виноградный проезд	residential
+Мало-Уральская улица	residential
+Приуральская улица	residential
+Обходной переулок	residential
+Валдайская улица	tertiary
+улица 43-я Линия	residential
+Осиновая улица	residential
+улица Пестеля	residential
+Крутая улица	residential
+улица 13-я Линия	residential
+ул. 2-я линия	service
+Грушевый переулок	residential
+Терновая улица	service
+Транспортная улица	tertiary
+Минская улица	residential
+Грозненская улица	residential
+улица Проезд 7	service
+Пойменная улица	residential
+улица 2-й спуск	service
+улица Орлова	secondary
+Ученический переулок	residential
+Дунайский проезд	residential
+Новгородская улица	residential
+2-я Линейная улица	residential
+1-я Пугачёвская улица	residential
+ул. 17 линия	service
+улица Комарова	residential
+улица Тургенева	residential
+Волжская улица	tertiary
+улица Садовое Кольцо	secondary
+улица Джангильдина	secondary
+Брянская улица	tertiary
+улица Щорса	residential
+Самарская улица	residential
+Донецкая улица	residential
+улица Берег Урала	unclassified
+Полигонная улица	residential
+Целинная улица	tertiary
+Родниковая улица	service
+Измайловская улица	residential
+10-я линия улица	service
+Привольная улица	residential
+Рижская улица	tertiary
+переулок Торговый 1-й проезд	residential
+улица Проезд 17	service
+2-й проезд Кривцова	residential
+ул. 23 линия	service
+Кольцевая улица	tertiary
+Водопроводная улица	unclassified
+улица 85-я Линия	secondary
+улица Лабужского	tertiary
+улица Пашкова	residential
+Фруктовая улица	residential
+Товарищеский переулок	residential
+улица Орлова	tertiary
+Берёзовая улица	service
+улица Металлистов	residential
+Тепличная улица	unclassified
+Мебельная улица	unclassified
+улица Маврицкого	unclassified
+улица Землянского	residential
+улица Красина	residential
+Бухарский переулок	residential
+2-й Крымский проезд	residential
+Рябиновый переулок	residential
+Липовая улица	residential
+улица 16-я Линия	secondary
+Физкультурная улица	tertiary
+Берёзовая улица	residential
+Майская улица	service
+Тоцкий переулок	residential
+Овражная улица	residential
+Лесозащитная улица	secondary
+Пушкинская улица	secondary
+ул. 8-я линия	service
+Братская улица	residential
+1-й Луговой проезд	residential
+Колодезная улица	residential
+улица 11-й проезд	service
+переулок Тургенева	residential
+Селивановский переулок	residential
+улица 59-я Линия	residential
+Речная улица	service
+Луговая улица	tertiary
+улица Розенберга	residential
+улица Мартынова	residential
+1-й Виноградный проезд	residential
+Тобольская улица	residential
+Парковый проспект	unclassified
+улица 81-я Линия	unclassified
+улица Гусева	residential
+Советская улица	tertiary
+1-я Семафорная улица	residential
+улица Аксакова	secondary
+улица Аксакова	unclassified
+Шинная улица	residential
+Заречная улица	tertiary
+улица Берег Урала	residential
+Гражданская улица	unclassified
+Кузнечная улица	residential
+улица Автомобилистов	tertiary
+Тихая улица	unclassified
+Клубничная улица	service
+переулок Жуковского	residential
+Сухая улица	service
+улица Чичерина	secondary
+улица А.В. Коваленко	residential
+Виноградная улица	residential
+Сливовая улица	residential
+Промысловый проезд	tertiary
+Раздольная улица	residential
+1-я Озёрная улица	residential
+улица Проезд 15	service
+Васильковая улица	residential
+Харьковская улица	tertiary
+улица Нахимова	residential
+Чистопольская улица	residential
+Тополиная улица	residential
+улица 29-я Линия	unclassified
+Оренбург — Илек — граница с Республикой Казахстан	trunk
+улица Рощина	tertiary
+Цветочная улица	residential
+Лосиный переулок	residential
+проезд Коммунаров	secondary
+Барнаульский переулок	residential
+улица 25-я Линия	residential
+ул. 4 линия	service
+Луганская улица	tertiary
+Курортная улица	residential
+2-й проезд Расковой	residential
+улица 29-я Линия	residential
+Локомотивная улица	tertiary
+Чайный переулок	residential
+Интернациональная улица	service
+Трансформаторная улица	service
+улица 26-я Линия	residential
+Кинельский переулок	residential
+Песчаная улица	residential
+Апрельский переулок	residential
+Природная улица	unclassified
+Усадебная улица	residential
+Днепровская улица	unclassified
+проезд 2-й Ряд	residential
+улица Дунаевского	residential
+Парковская улица	residential
+3-й Виноградный проезд	residential
+улица Чайковского	residential
+Ремесленная улица	tertiary
+Колокольчиковая улица	residential
+Заводская улица	service
+Донская улица	residential
+Рабочая улица	tertiary
+4-я Семафорная улица	residential
+Таёжный переулок	residential
+Полевая улица	residential
+Магистральная улица	tertiary
+улица Талалихина	residential
+улица Сергея Лазо	residential
+улица Сухарева	residential
+2-й Восточный проезд	residential
+улица 70 лет ВЛКСМ	residential
+Караванная улица	residential
+Сакмарская улица	residential
+Железнодорожная улица	residential
+Чулочный переулок	residential
+Ипподромная улица	residential
+улица 67-я Линия	residential
+Звёздный переулок	residential
+2-я Книжная улица	service
+5-я линия улица	service
+улица Кобозева	secondary
+Центральный переулок	residential
+Русский переулок	residential
+улица Тупик	service
+Гвардейская улица	residential
+улица Родимцева	tertiary
+4-й Дубовый проезд	residential
+улица Мичурина	service
+Онежская улица	residential
+улица Желябова	residential
+Парковская улица	tertiary
+Губерлинский проезд	residential
+Советская улица	residential
+Калужская улица	residential
+улица Третьякова	service
+улица Левашова	residential
+Витимская улица	residential
+Майская улица	residential
+Амурская улица	tertiary
+улица Фурманова	residential
+улица Курача	residential
+улица 39 ряд	service
+улица Юрова	residential
+Зелёная улица	residential
+Обход п. Ростоши	secondary
+ул. 27 линия	service
+улица Кобозева	residential
+улица Берёзовая Ростошь	secondary
+улица Овсянникова	residential
+улица 57-я Линия	residential
+Элеваторная улица	unclassified
+улица Курочкина	residential
+Астраханская улица	residential
+Яицкая улица	residential
+улица 23-я Линия	residential
+улица Расковой	tertiary
+Алданский переулок	residential
+Витебская улица	residential
+ул. 19 линия	service
+улица Карпочева	residential
+Ленинская улица	residential
+улица Александрова	residential
+проезд Газовиков	secondary
+Спецстроевцев улица	unclassified
+улица Восстания	residential
+улица Черепановых	residential
+улица 8 Марта	residential
+улица Майкова	residential
+Гребенская улица	residential
+улица Полнолуния	residential
+улица 6-я Линия	residential
+Кирпичная улица	residential
+улица Маршака	residential
+улица Цвиллинга	primary
+Сырейный переулок	residential
+улица Епифанова	residential
+улица 5-я Линия	residential
+Хабаровская улица	secondary
+Красносельский переулок	residential
+Украинская улица	residential
+Мало-Сенная улица	residential
+улица Котова	tertiary
+улица Коммуны	residential
+улица Ямашева	residential
+Дорожная улица	residential
+улица Лодыгина	residential
+Бузулукская улица	residential
+Соляной переулок	residential
+Финская улица	unclassified
+улица Стройгородок	residential
+Архивный переулок	residential
+Подъезд к г. Оренбургу от а/д Казань - Оренбург	primary
+4 Линия улица	service
+улица Проезд 8	service
+Ленинская улица	primary
+улица Кутузова	residential
+Литейная улица	residential
+Томилинская улица	residential
+улица Чернышевского	residential
+4-я Береговая улица	residential
+Манежная улица	residential
+Степная улица	residential
+Станционная улица	residential
+Весёлая улица	residential
+проезд Мичурина	service
+улица Егорова	residential
+улица Державина	residential
+Дмитриевский переулок	tertiary
+ул. 1-я линия	service
+3 Линия улица	service
+улица Луначарского	residential
+Ясный переулок	residential
+Транспортная улица	secondary
+Моторная улица	residential
+Арсенальный переулок	residential
+улица Юркина	secondary
+Подгорный переулок	residential
+улица Жуковского	tertiary
+3-я Береговая улица	residential
+Каховская улица	residential
+Курильская улица	residential
+Мансардный переулок	residential
+Карагайская улица	residential
+7-я линия улица	service
+Лужский переулок	residential
+улица 18-я Линия	residential
+улица 63-я Линия	residential
+улица Лермонтова	residential
+Вязовая улица	residential
+Охотская улица	unclassified
+Лётная улица	residential
+1-я Цветочная улица	unclassified
+улица Энергетиков	service
+Васильковая улица	service
+Косогорный переулок	unclassified
+улица Степана Разина	unclassified
+Клубная улица	residential
+улица 38 ряд	service
+Вагонная улица	residential
+улица Караваева Роща	unclassified
+улица Столпянского	unclassified
+Больничный проезд	tertiary
+Баргузинская улица	tertiary
+Лечебный переулок	residential
+улица Проезд 4	service
+Кооперативный переулок	residential
+улица Никитина	residential
+улица Переселенцев	residential
+Беломорский переулок	residential
+Восточная улица	secondary
+Западная улица	service
+улица 2-я Линия	residential
+Театральная улица	primary
+Тупой переулок	service
+улица Глинки	residential
+улица Автомобилистов	secondary
+улица Талалихина	tertiary
+Рябиновая улица	residential
+Красная улица	unclassified
+Вокзальная улица	tertiary
+Дорожная улица	unclassified
+улица 14-й квартал	residential
+Татарский переулок	residential
+Озёрная улица	service
+Гугучкинский переулок	residential
+Кишинёвская улица	residential
+Приволжская улица	residential
+улица Садовников	residential
+Пионная улица	service
+1-й проезд Чехова	residential
+улица Донгузская 5-й проезд	unclassified
+улица 71-я Линия	residential
+5-я Береговая улица	residential
+Айдырлинский проезд	residential
+улица Сапожникова	residential
+Сибирский переулок	unclassified
+Тамбовская улица	residential
+улица Братьев Башиловых	tertiary
+Гороховая улица	service
+улица Чичерина	primary
+Медовая улица	residential
+улица 60 лет Октября	unclassified
+Широкая улица	residential
+ул. 18 линия	service
+Черноморский переулок	residential
+Калиновая улица	service
+Фруктовая улица	service
+улица 31-я Линия	secondary
+«Урал»	primary
+Дубовая улица	service
+улица Донгузская 1-й проезд	tertiary
+Бульварный проезд	residential
+Электрозаводской переулок	residential
+Старокузнечная улица	residential
+улица Саморядова	residential
+улица Куйбышева	residential
+улица Саморядова	tertiary
+Измайловская улица	tertiary
+Внутриквартальный переулок	residential
+переулок Пчеловода	service
+Таймырский переулок	residential
+улица Кирова	secondary
+улица Бурзянцева	unclassified
+улица Корецкой	tertiary
+Майский проезд	residential
+улица Державина	tertiary
+Июльская улица	unclassified
+Волховский переулок	residential
+улица Ткачева	tertiary
+Загородное шоссе	trunk
+улица 2-й проезд	service
+3-й Совхозный проезд	residential
+Профсоюзная улица	service
+улица Караваева Роща	residential
+улица Дмитриев Яр	service
+Калиновая улица	residential
+Терновая улица	residential
+Канавная улица	residential
+Южно-Уральская улица	residential
+2-я Озёрная улица	residential
+проезд Автоматики	secondary
+Краснознамённая улица	secondary
+Лесозащитная улица	service
+1-й Луговой переулок	residential
+Инверторная улица	tertiary
+ул. 8 линия	service
+Каспийская улица	residential
+Чистопольская улица	unclassified
+Калининградский переулок	residential
+Римская улица	residential
+Сорочинский переулок	residential
+улица 19-й квартал	unclassified
+Мало-Мельничная улица	residential
+Полигонная улица	secondary
+ул. 9-я линия	service
+Торговый переулок	residential
+Саратовский переулок	residential
+Рубинная улица	residential
+Житомирская улица	residential
+Вишнёвая улица	residential
+Широкая улица	unclassified
+Бассейный переулок	residential
+Рассветный переулок	residential
+Чебеньковская улица	residential
+11-я линия улица	service
+Профсоюзная улица	unclassified
+Мирная улица	residential
+улица Проезд 2	service
+улица Журевского	residential
+Балхашская улица	residential
+Тепличная улица	residential
+ул. 3 линия	service
+Подгорная улица	service
+Софийская улица	residential
+улица Маршала Жукова	secondary
+Гороховская улица	residential
+улица 73-я Линия	residential
+улица Осипенко	residential
+Ростовская улица	residential
+2-я Привольная улица	residential
+Каштановый проезд	residential
+Малиновый переулок	residential
+Малый проезд	residential
+Буруктальский переулок	residential
+улица Яблочкова	residential
+Земская улица	residential
+переулок Торговый 2-й проезд	residential
+улица Геофизиков	residential
+Новая улица	service
+улица Скороходова	residential
+Техническая улица	tertiary
+улица В.В. Николаева	residential
+Пограничная улица	unclassified
+Спортивная улица	residential
+улица Геологов	service
+Солдатский переулок	residential
+Нагорная улица	unclassified
+переулок Маврицкого	residential
+улица Есенина	residential
+улица Шевченко	unclassified
+улица Чапаева	tertiary
+проспект Гагарина	primary
+улица 5-я линия	service
+Майский проезд	tertiary
+Полевая улица	unclassified
+Бригадный переулок	residential
+Алма-Атинская улица	residential
+Кольцевая улица	residential
+улица 51-я Линия	residential
+Мебельная улица	residential
+Инструментальная улица	unclassified
+Камская улица	residential
+Плодовая улица	service
+Медногорская улица	residential
+Тополевая улица	service
+улица 9-я Линия	residential
+улица 4-я Линия	residential
+Леушинская улица	residential
+улица Бабушкина	residential
+Ивовая улица	residential
+Миланская улица	unclassified
+улица Репина	residential
+Рудный переулок	residential
+Авдеевский переулок	residential
+Ноябрьская улица	residential
+6-я линия улица	service
+Огуречная улица	service
+улица Красной Гвоздики	residential
+Уральская улица	tertiary
+улица Маршала Жукова	primary
+улица 18-й квартал	service
+Обрывная улица	residential
+улица 5 линия	service
+Боевой переулок	residential
+Сельскохозяйственная улица	residential
+Водяная улица	residential
+Садовая улица	unclassified
+улица Гастелло	residential
+Маячная улица	residential
+Западная улица	unclassified
+Кондукторская улица	residential
+Уфимская улица	residential
+Базовая улица	tertiary
+улица Зои Космодемьянской	tertiary
+Солнечная улица	service
+улица Проезд 10	service
+Кленовая улица	service
+переулок Медиков	service
+2-й Луговой проезд	residential
+улица 22-я Линия	residential
+Кавказская улица	unclassified
+улица 10-й проезд	service
+Омская улица	unclassified
+Подъезд к аэропорту г. Оренбурга	unclassified
+Дачная улица	service
+улица 5-й проезд	service
+улица Фрунзе	residential
+улица 14-я Линия	residential
+Космическая улица	residential
+2-я Озёрная улица	unclassified
+Обрывный переулок	residential
+улица Хусаинова	residential
+ул. 11 линия	service
+Ангарская улица	residential
+Печёрский переулок	residential
+Хозяйственный переулок	residential
+Брестская улица	secondary
+Еловая улица	residential
+улица Авиаторов	service
+Брянская улица	unclassified
+Смоленская улица	residential
+улица Дубицкого	residential
+Мало-Торговый переулок	residential
+улица Абдрашитова	residential
+Нижняя улица	tertiary
+Заовражная улица	unclassified
+Заводской переулок	residential
+улица Набережная Сакмары	residential
+Химическая улица	unclassified
+улица Санина	service
+Терский переулок	residential
+Ростошинская улица	unclassified
+улица Родимцева	unclassified
+переулок Грабовского	residential
+улица Проезд 5	service
+улица 19-я Линия	residential
+улица Тельмана	residential
+улица Баумана	residential
+Ново-Вишнёвая улица	service
+улица Кима	residential
+Артельная улица	residential
+Крайняя улица	service
+Харьковская улица	residential
+Алтайская улица	tertiary
+улица 55-я Линия	residential
+Калифановский переулок	service
+Ростовская улица	unclassified
+улица Халтурина	residential
+Полтавская улица	secondary
+Новая улица	secondary
+улица Терешковой	unclassified
+улица Черкасовой	residential
+Широтная улица	tertiary
+улица Озеленителей	unclassified
+Донгузская проезд 5-й улица	unclassified
+улица Щетинина	residential
+Летняя улица	service
+улица Достоевского	residential
+Мастерской переулок	residential
+улица Гастелло	tertiary
+Новый переулок	residential
+улица Герцена	residential
+Почтовый переулок	residential
+улица Кузьмина	service
+улица 21-я Линия	residential
+Карачинская улица	residential
+улица Салавата Юлаева	residential
+улица Серова	residential
+Аральский переулок	residential
+улица Плеханова	residential
+улица Крупской	residential
+улица Павлика Морозова	residential
+улица 39-я Линия	residential
+улица 18-й квартал	residential
+Абрикосовая улица	service
+переулок Шевченко	residential
+проспект Дзержинского	tertiary
+Грибная улица	residential
+улица Чехова	residential
+Форштадский проезд	unclassified
+Коммунистическая улица	residential
+улица Зеленко	unclassified
+Образцовая улица	unclassified
+Полевая улица	service
+ул. 4-я линия	service
+Луговая улица	service
+Сосновая улица	residential
+Электрическая улица	residential
+Профсоюзная улица	residential
+Ленинская улица	secondary
+улица Добролюбова	residential
+Озёрная улица	residential
+улица Зорянка	residential
+Мирная улица	service
+Контактная улица	residential
+Школьная улица	unclassified
+улица Ворошилова	tertiary
+улица Костюкова	residential
+улица 47-я Линия	residential
+Дамбовая улица	unclassified
+Охотничья улица	residential
+улица 15-я Линия	residential
+Рябиновая улица	service
+5-й Виноградный проезд	residential
+улица 33-я Линия	residential
+Огородная улица	residential
+Казанская улица	residential
+Ковыльная улица	tertiary
+Осенняя улица	unclassified
+улица Комарова	service
+улица 6-й проезд	service
+Прохладная улица	residential
+Бердинская улица	residential
+улица Грибоедова	residential
+улица Юных Ленинцев	unclassified
+Восточная улица	service
+улица Мискинова	residential
+улица 70 лет ВЛКСМ	unclassified
+Ноябрьская улица	unclassified
+Творческая улица	residential
+Турбинная улица	residential
+Проезжая улица	residential
+улица Ветеранов	service
+Буранная улица	residential
+Пушкинский бульвар	pedestrian
+улица Цветной бульвар	unclassified
+Радужная улица	residential
+улица Энергетиков	unclassified
+улица Ульянова	secondary
+улица Диагностики	residential
+Ленинградская улица	tertiary
+Магнитогорская улица	tertiary
+Кислородная улица	residential
+Елькинская улица	residential
+улица 13-й проезд	service
+Классный переулок	residential
+Амбулаторная улица	residential
+1-я линия	service
+8-я линия улица	service
+ул. 5-я линия	service
+1 Линия улица	service
+Чкаловский переулок	residential
+Солнечная улица	unclassified
+Нежинское шоссе	primary
+улица Орлова	residential
+Станция Заводская улица	unclassified
+улица 7-й проезд	service
+проспект Братьев Коростелёвых	secondary
+улица Столпянского	residential
+Прямая улица	service
+Сумская улица	residential
+Парковый проспект	secondary
+улица 53-я Линия	residential
+1-й Паромный переулок	service
+Скорняжный переулок	residential
+Народная улица	secondary
+Казаковская улица	tertiary
+улица Гребенникова	residential
+13-я линия улица	service
+Лазурная улица	residential
+Первый проезд	service
+улица Челюскинцев	residential
+Деповская улица	residential
+переулок Надежды	residential
+ул. 25 линия	service
+Советская улица	unclassified
+Центральная улица	tertiary
+проезд Коммунаров	unclassified
+улица Рентгена	residential
+улица Проезд 11	service
+Косой переулок	service
+улица Шевченко	residential
+Уссурийский переулок	residential
+улица Рылеева	residential
+1-й Одесский проезд	residential
+улица Связистов	residential
+Овражная улица	service
+Десантная улица	service
+улица Геннадия Донковцева	residential
+бульвар Юности	residential
+улица 9-й Околоток	unclassified
+Мало-Ленинская улица	residential
+Ивановская улица	residential
+улица 83-я Линия	residential
+6-й Виноградный проезд	residential
+Южный переулок	residential
+улица 20-я Линия	unclassified
+Безымянная улица	residential
+Верхняя улица	service
+Караван-Сарайская улица	residential
+ул. 5 линия	service
+улица Цвиллинга	pedestrian
+улица 10 КМ	residential
+Успенская улица	residential
+улица Нахимова	tertiary
+улица 65-я Линия	residential
+улица Ногина	tertiary
+Путейская улица	residential
+Базарная улица	residential
+Госпитальный переулок	tertiary
+3-я Семафорная улица	residential
+улица Проезд 16	service
+Ириклинская улица	tertiary
+Южная улица	residential
+Разворотное кольцо для тролейбусов	service
+Кипарисовая улица	residential
+улица Берёзовая Ростошь	unclassified
+проезд Связистов	service
+улица 34 ряд	service
+улица Проезд 9	service
+улица Воровского	residential
+улица Кирова	residential
+Городищенская улица	residential
+Октябрьская улица	tertiary
+Успенская улица	tertiary
+улица Ф.Энгельса	residential
+улица Бурчак-Абрамовича	residential
+Сливовый тупик	service
+улица Занузданова	residential
+переулок Котовского	residential
+улица Володарского	secondary
+переулок Канарейкина	residential
+4-й Виноградный проезд	residential
+улица Лебединского	residential
+Львовская улица	secondary
+Шарлыкское шоссе	tertiary
+Чаганская улица	residential
+улица Маврицкого	residential
+Яблочная улица	service
+Сосновая улица	service
+Илекское шоссе	trunk
+улица 17-я Линия	residential
+Городская улица	residential
+улица МОПРа	residential
+улица Мечты	service
+ул. 14 линия	service
+улица Удачи	residential
+Орская улица	secondary
+Кокинская улица	residential
+улица Переселенцев	unclassified
+Короткий переулок	residential
+Геологический переулок	residential
+улица 9 Января	pedestrian
+Беляевская улица	primary
+улица Мира	secondary
+Сахалинская улица	secondary
+Садовый переулок	residential
+улица Розы Люксембург	tertiary
+Ярославский переулок	secondary
+1-й Дубовый проезд	unclassified
+улица М.Фадеева	residential
+Муниципальная улица	residential
+улица Правды	tertiary
+улица Механизаторов	tertiary
+переулок Пятницкого	residential
+улица Красный Партизан	service
+Осиновая улица	service
+Самолётная улица	residential
+Газовый переулок	residential
+улица 11-й квартал	residential
+1-я линия улица	service
+Северная улица	service
+переулок Киселёва	residential
+Озёрная улица	unclassified
+Насыпная улица	residential
+Инструментальная улица	residential
+Абрикосовая улица	unclassified
+улица Шевченко	service
+улица Жуковского	residential
+Тепловозная улица	tertiary
+Мичманский переулок	residential
+Нежинская улица	residential
+Ишимский переулок	residential
+улица Мусы Джалиля	tertiary
+Слесарный переулок	residential
+Садовая улица	service
+Яблоневая улица	service
+Широкая улица	service
+улица Хакимова	residential
+Центральная улица	service
+Микрорайонная улица	residential
+Григорьевская улица	residential
+Учительская улица	residential
+улица Дмитрия Донского	residential
+Больничный проезд	residential
+1-я линия	residential
+Ягодный переулок	residential
+Красный переулок	unclassified
+5-й Паромный переулок	residential
+улица Цветной бульвар	residential
+Набережная улица	residential
+Розовая улица	service
+Пролетарская улица	secondary
+Пороховая улица	residential
+Зауральная улица	tertiary
+Саракташская улица	residential
+Рыбный переулок	residential
+Ленинградская улица	residential
+улица Дружбы	tertiary
+Целинная улица	residential
+улица Володарского	unclassified
+улица Арапова	residential
+Краснохолмская улица	residential
+улица Серебряной Росы	residential
+Дамбовая улица	residential
+улица Блюхера	residential
+ул. 10 линия	service
+улица Кривцова	residential
+Подковный переулок	residential
+Прохладая улица	service
+Деповская улица	tertiary
+Бугурусланская улица	residential
+Матросский переулок	tertiary
+Зейский переулок	residential
+Чернореченская улица	residential
+Кустарный переулок	tertiary
+1-й проезд Расковой	residential
+улица Энтузиастов	residential
+Славянский переулок	residential
+Запорожская улица	residential
+Сквозной проезд	residential
+улица Дружбы	service
+Уральская улица	service
+Хоровая улица	service
+улица Дзержинского	residential
+проспект Победы	primary
+улица 9-й проезд	service
+улица Шафеева	residential
+улица 20-й квартал	residential
+Красногвардейская улица	residential
+Морозовский переулок	residential
+Мало-Озёрная улица	residential
+Илекская улица	unclassified
+Восточный переулок	residential
+Киевская улица	residential
+Севастопольская улица	residential
+ул. 20 линия	service
+1-й Ромашковый проезд	service
+улица 9 Января	secondary
+Тополиная улица	service
+Просторная улица	tertiary
+Авиационная улица	tertiary
+улица Ломоносова	residential
+улица 85-я Линия	residential
+Урожайная улица	residential
+улица Акулова	residential
+Флагманский переулок	residential
+улица Терешковой	primary
+улица Курача	unclassified
+улица Потехина	residential
+Кедровый переулок	residential
+Казахская улица	residential
+Балтийский переулок	residential
+проезд Коммунаров	tertiary
+Лучистый переулок	residential
+улица 75-я Линия	unclassified
+Староуральская улица	residential
+Грушовая улица	service
+улица 8 Марта	primary
+улица Берёзка	secondary
+Хлебный переулок	residential
+Невельская улица	residential
+улица Великанова	residential
+Осиновый переулок	residential
+ул. 21 линия	service
+Краснопартизанская улица	residential
+Картофельная улица	service
+Зелёный тупик	residential
+Планетарная улица	track
+Кубанская улица	residential
+Совхозная улица	residential
+Торговая улица	residential
+Раздольная улица	tertiary
+улица Иванова	residential
+Яблоневая улица	residential
+Донгузская улица	trunk
+улица Чистый Воздух	service
+Инверторная улица	residential
+улица Аксакова	tertiary
+Сиреневая улица	residential
+Калининградская улица	residential
+Спартаковская улица	tertiary
+Физкультурная улица	residential
+улица 37-я Линия	residential
+переулок Попова	residential
+Планерная улица	residential
+Сапожковая улица	service
+Одесская улица	secondary
+Сиреневая улица	service
+улица Прохоренко	unclassified
+Колёсная улица	residential
+переулок Макарова	residential
+улица 4-й проезд	service
+Сквозной переулок	residential
+улица 8-я Линия	residential
+Ключевая улица	residential
+улица Ильи Глазунова	unclassified
+Вечерняя улица	residential
+Ореховая улица	residential
+1-й Совхозный проезд	residential
+Новая улица	residential
+Мало-Луговая улица	residential
+1-й проезд Кривцова	residential
+Волочаевская улица	tertiary
+Уральская улица	residential
+Луганская улица	unclassified
+Авторемонтная улица	secondary
+переулок Торговый 3-й проезд	residential
+Донгузская улица	primary
+Солнечная улица	residential
+Центральная улица	residential
+Подвесная улица	residential
+Дмитриевский переулок	residential
+Сормовский переулок	residential
+улица Просвещения	unclassified
+Лагерная улица	residential
+переулок Фролова	residential
+Ирбитская улица	residential
+Объединённая улица	service
+Лесозащитная улица	unclassified
+улица Попова	residential
+Российская улица	residential
+Стремянная улица	residential
+Мельничный переулок	residential
+ул. 13 линия	service
+Курганская улица	residential
+Прогонная улица	residential
+улица Тамарова	residential
+Малый переулок	residential
+улица 49-я Линия	residential
+переулок Кривцова	residential
+ул. 26 линия	service
+улица Ленинской Искры	residential
+Журавлиная улица	residential
+улица Абдрашитова	tertiary
+Проточная улица	residential
+улица Хакимова	unclassified
+Леушинская улица	tertiary
+Карьерная улица	residential
+Шоссейный тупик	residential
+Дружная улица	residential
+"Мансардный переулок, 1-й проезд"	residential
+улица Ульянова	residential
+Калининградская улица	tertiary
+ул. 16 линия	service
+Водяной переулок	residential
+Релейная улица	residential
+Полтавская улица	tertiary
+улица Берёзка	residential
+улица Зои Космодемьянской	residential
+Тенистая улица	residential
+улица Карпова	unclassified
+Воскресенская улица	residential
+улица Текстильщиков	residential
+улица 45-я Линия	residential
+улица Алтынсарина	residential
+Белозёрная улица	residential
+Путейный переулок	residential
+Оздоровительный переулок	residential
+Виноградная улица	service
+ул. 3-я линия	service
+Связной переулок	unclassified
+Абрикосовый переулок	residential
+Тракторная улица	residential
+улица Корецкой	residential
+улица Поляничко	residential
+улица 34-я Линия	unclassified
+улица Берёзовая Ростошь	pedestrian
+Кавалерийская улица	residential
+Казачья улица	service
+улица Проезд 3	service
+проезд 3-й Ряд	residential
+Молодёжный переулок	residential
+Банный переулок	residential
+Малышевская улица	residential
+Нугушская улица	residential
+Дачный переулок	service
+Казарменный переулок	residential
+Елшанская улица	residential
+Пролетарская улица	residential
+Тупой переулок	residential
+Лобовская улица	residential
+2 Линия улица	service
+Высотная улица	residential
+улица Мира	unclassified
+Салмышская улица	secondary
+Казачья улица	residential
+Цветочная улица	service
+улица Фронтовиков	unclassified
+Карагандинская улица	secondary
+Знаменский проезд	secondary
+улица 1 Мая	residential
+ул. 6 линия	service
+Раздольная улица	unclassified
+Томилинская улица	tertiary
+улица 34-я Линия	secondary
+улица Батурина	residential
+улица Нежинское шоссе	unclassified
+Луганская улица	residential

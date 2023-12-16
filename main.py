@@ -3,7 +3,7 @@ import os.path
 from flask import Flask, render_template
 
 from models import db
-from pages import auth, users, profile
+from pages import auth, users, profile, api
 from security import is_user_authed
 from utils.housings_utils import get_housings_statistic
 from utils.locations_utils import get_settlements
@@ -39,6 +39,11 @@ def main() -> None:
         # Users sections
         '/users/me': (users.users_me, ['GET']),
         # Api section
+        '/api/get_settlements_by_country': (api.get_settlements_by_country, ['GET']),
+        '/api/get_streets_by_settlement': (api.get_streets_by_settlement, ['GET']),
+        '/api/add_housing': (api.add_housing, ['POST']),
+        '/api/export_data': (api.export_data, ['GET']),
+        '/api/get_streets_by_like_name': (api.get_streets_by_like_name, ['GET']),
         # Profiles section
         '/profile': (profile.my_profile, ['GET']),
         '/my_housings': (profile.my_housings, ['GET']),
