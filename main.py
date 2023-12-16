@@ -47,7 +47,10 @@ def main() -> None:
         # Profiles section
         '/profile': (profile.my_profile, ['GET']),
         '/my_housings': (profile.my_housings, ['GET']),
-        '/create_housing': (profile.create_housing, ['GET', 'POST'])
+        '/create_housing': (profile.create_housing, ['GET', 'POST']),
+        '/view_housing': (profile.view_housing, ['GET']),
+        '/remove_housing': (profile.remove_housing, ['PUT', 'GET']),
+        '/change_housing': (profile.change_housing, ['GET', 'POST'])
     }
 
     for routing, args in pages_routing.items():

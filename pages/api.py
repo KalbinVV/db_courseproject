@@ -2,7 +2,7 @@ from flask import request
 
 import data.utils
 import models
-from security import should_be_authed, get_user
+from security import should_be_authed, get_user, should_be_owner_of_housing
 
 
 def get_settlements_by_country():

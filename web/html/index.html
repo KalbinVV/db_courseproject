@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <title>Главная страница</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/select2.min.css') }}">
@@ -95,9 +94,7 @@
                 {% for housing_type in housings_types %}
                 <li>
                     <div class="single-list-topics-content">
-                        <div class="single-list-topics-icon">
-                            <i class="flaticon-restaurant"></i>
-                        </div>
+                        <img class="icon_logo" style="width: 50px; height: 50px;" src="/static/images/{{ housing_type['variables']['icon'] }}"/>
                         <h2><a href="#">{{ housing_type['name'] }}</a></h2>
                         <p>{{ housing_type['variables']['count'] }}</p>
                         <p>{{ housing_type['variables']['description'] }}</p>

@@ -34,14 +34,15 @@ def export_streets_types():
 
 
 def export_housings_types():
-    housings_types = [('Квартира', 'Уютная квартира', True),
-                      ('Дом', 'Уютный дом', False),
-                      ('Загородный дом', 'Уютный загородный дом', False)]
+    housings_types = [('Квартира', 'Уютная квартира', True, 'department_icon.png'),
+                      ('Дом', 'Уютный дом', False, 'house_icon.png'),
+                      ('Загородный дом', 'Уютный загородный дом', False, 'villa_icon.png')]
 
     for housing_type in housings_types:
         housing_type_model = models.HousingsTypes(name=housing_type[0],
                                                   description=housing_type[1],
-                                                  required_department_number=housing_type[2])
+                                                  required_department_number=housing_type[2],
+                                                  icon=housing_type[3])
 
         models.db.session.add(housing_type_model)
         models.db.session.commit()

@@ -50,3 +50,25 @@ def should_be_authed(function: Callable) -> Callable:
         return function(*args, **kwargs)
 
     return decorator
+
+
+def should_be_owner_of_housing(function):
+    @wraps(function)
+    def decorator(*args, **kwargs):
+        housing_id = request.args.get('housing_id')
+
+        if housing_id is None:
+            housing_id = request.form.get('housing_id')
+
+        housing_id = int(housing_id)
+
+        user = get_user()
+
+        housing: models.Housings = models.Housings.query.filter_by(id=housing_id).first_or_404()
+
+        if housing.owner_id != user.id:
+            return 400, "You should be owner of this housing"
+
+        return function(*args, **kwargs)
+
+    return decorator

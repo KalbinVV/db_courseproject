@@ -24,11 +24,15 @@ $(document).ready(function() {
 
     $('.housings_types_select').select2()
 
-    $('.housings_types_select').change(update_department_number_visible)
+    $('.housings_types_select').change(() => {
+        update_department_number_visible()
+        update_icon()
+    })
 
     $('.countries_select').change(update_settlements_select)
 
     update_department_number_visible()
+    update_icon()
 
     $('#add_housing_form').submit(function(e){
         e.preventDefault()
@@ -85,5 +89,11 @@ $(document).ready(function() {
         } else {
             $('.department_number_container').hide()
         }
+    }
+
+    function update_icon() {
+        const icon = $('.housings_types_select').find(':selected').attr('data-icon')
+
+        $('.type_icon').attr('src', '/static/images/' + icon)
     }
 })

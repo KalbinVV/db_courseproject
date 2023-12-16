@@ -75,7 +75,7 @@ class Addresses(db.Model):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     house_number: Mapped[int] = mapped_column(Integer, nullable=False)
-    department_number: Mapped[int] = mapped_column(Integer, nullable=True)
+    department_number: Mapped[int] = mapped_column(String(5), nullable=True)
 
     street_id: Mapped[int] = mapped_column(ForeignKey('streets.id'), nullable=False)
 
@@ -101,6 +101,13 @@ class Housings(db.Model):
     owner_id: Mapped[int] = mapped_column(ForeignKey('users.id'), nullable=False, index=True)
     renter_id: Mapped[int] = mapped_column(ForeignKey('users.id'), index=True, nullable=True)
     address_id: Mapped[int] = mapped_column(ForeignKey('addresses.id'), nullable=False)
+
+    created_at: Mapped[datetime.datetime] = mapped_column(DateTime(timezone=True),
+                                                          nullable=False,
+                                                          default=datetime.datetime.utcnow())
+    updated_at: Mapped[datetime.datetime] = mapped_column(DateTime(timezone=True),
+                                                          nullable=False,
+                                                          default=datetime.datetime.utcnow())
 
 
 class Units(db.Model):
@@ -164,24 +171,3 @@ class History(db.Model):
     CheckConstraint("rent_end > rent_start", name="history_rent_time_check")
 
     price: Mapped[int] = mapped_column(Integer, nullable=False)
-
-
-class Files(db.Model):
-    __tablename__ = 'files'
-
-    id: Mapped[int] = mapped_column(Integer, primary_key=True)
-
-    file_path: Mapped[str] = mapped_column(String(255), nullable=False)
-    is_compressed: Mapped[bool] = mapped_column(Boolean, default=False)
-    file_type: Mapped[str] = mapped_column(String(50), nullable=False)
-
-    owner_id: Mapped[int] = mapped_column(ForeignKey('users.id'), nullable=False)
-
-
-class RecordsImages(db.Model):
-    __tablename__ = 'records_images'
-
-    id: Mapped[int] = mapped_column(Integer, primary_key=True)
-
-    record_id: Mapped[int] = mapped_column(ForeignKey('records.id'), nullable=False)
-    file_id: Mapped[int] = mapped_column(ForeignKey('files.id'), nullable=False)

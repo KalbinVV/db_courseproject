@@ -34,12 +34,12 @@
 </section>
 <br>
 <div class="main" align="center">
-    <img class="pf" src="https://icollector.000webhostapp.com/widget/profile/images/iexp_coin.jpg"/>
+    <img class="pf" src="{{ url_for('static', filename='images/houses.png')}}"/>
     <div class="contain">
         <div class="i_space"></div>
         <h2 class="title">{{ username }}</h2>
         <p class="summary">
-            <tag>Жильё</tag>
+            <tag>Здесь вы можете добавлять/изменять жильё, создавать объявления</tag>
         </p>
         <p><a class="link_button" href="/create_housing">Добавить новое жильё</a></p>
     </div>
@@ -47,11 +47,12 @@
         <div class="row">
             {% for housing in housings %}
             <div class="column">
-                <div class="i_contain" onclick="button1()">
+                <div class="i_contain" onclick="window.location.href='/view_housing?housing_id={{ housing.id }}'">
                     <div class="i_cards">
-                        <img class="icon_logo" alt="Жильё"/>
+                        <img class="icon_logo" src="/static/images/{{ housing.icon }}">
                         <h2 class="i_title">{{ housing.name }}</h2>
                         <p class="i_summary">{{ housing.description }}</p>
+                        <p class="i_summary"> Тип недвижимости: {{ housing.type_str }} </p>
                     </div>
                 </div>
             </div>

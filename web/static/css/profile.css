@@ -88,7 +88,6 @@ h1, h2, h3, h4, h5, p {
     margin-left: -25px;
     transition-duration: 0.4s;
     border: 1px solid #ccc;
-    background-color: black;
 }
 .i_cards {
     width: 100%;
@@ -139,4 +138,15 @@ textarea {
 
 p {
     color: black;
+}
+
+.interact_housing_button {
+    color: black;
+    width: 100%;
+    height: 5vh;
+    padding: 5px;
+}
+
+.interact_housing_button:hover {
+    background: orange;
 }
