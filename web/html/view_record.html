@@ -39,35 +39,65 @@
     <div class="contain">
         <div class="i_space"></div>
         <hr>
-        <h2 class="title">{{ record.title }}</h2>
+        {% if is_owner %}
         {% if record.current_status == 'Hidden' %}
-        <span style='color="gray"'>
+            <span style='color="gray"'>
             Объявление скрыто
-        </span>
+            </span>
         {% endif %}
-        <p class="summary">
-            {{ record.description }}
-        </p>
-        <p>Цена: {{ record.price }}</p>
-        <hr>
-        <h4>Способы связи: </h4>
+        <form method="post" action="/update_record">
+            {% endif %}
 
-        <p>Номер телефона: {{user.phone_number if user.phone_number else 'Не указан'}}</p>
-        <p>Электронная почта: {{user.email if user.email else 'Не указана'}}</p>
+            {% if is_owner %}
+            <input name="record_id" value="{{ record.id }}" hidden>
+            <input type="text" name="title" value="{{ record.title }}">
+            {% else %}
+            <h2 class="title">{{ record.title }}</h2>
+            {% endif %}
+            <p class="summary">
+                {% if is_owner %}
+                <textarea name="description" style="resize: none; width: 30rem; height: 20rem;">{{ record.description }}</textarea>
+                {% else %}
+                {{ record.description }}
+                {% endif %}
+            </p>
+            {% if is_owner %}
+            <input type="number" min="100" max="1000000" name="price" value="{{ record.price }}">
+            {% else %}
+            <p>Цена: {{ record.price }}</p>
+            {% endif %}
+            <hr>
+            <h4>Способы связи: </h4>
 
-        <hr>
+            <p>Номер телефона: {{user.phone_number if user.phone_number else 'Не указан'}}</p>
+            <p>Электронная почта: {{user.email if user.email else 'Не указана'}}</p>
 
-        <button class="interact_housing_button link_button" onclick="window.location.href='/view_housing?housing_id={{ record.housing_id }}'">Посмотреть жильё</button>
+            <hr>
 
-        {% if is_owner and record.current_status == 'Hidden' %}
-        <button class="interact_housing_button link_button" onclick="window.location.href='/activate_record?record_id={{ record.id }}'">Активировать объявление</button>
+            <button class="interact_housing_button link_button"
+                    onclick="window.location.href='/view_housing?housing_id={{ record.housing_id }}'" type="button">Посмотреть жильё
+            </button>
+
+            {% if is_owner and record.current_status == 'Hidden' %}
+            <button class="interact_housing_button link_button"
+                    onclick="window.location.href='/activate_record?record_id={{ record.id }}'" type="button">Активировать объявление
+            </button>
+            {% endif %}
+
+            {% if is_owner and record.current_status != 'Hidden' %}
+            <button class="interact_housing_button link_button"
+                    onclick="window.location.href='/hide_record?record_id={{ record.id }}'" type="button">Деактивировать объявление
+            </button>
+            <button class="interact_housing_button link_button" type="submit">Обновить объявление</button>
+            {% endif %}
+
+            <button class="interact_housing_button link_button"
+                    onclick="window.location.href='/profile?user_id={{ user.id }}'" type="button">Посмотреть профиль
+            </button>
+
+            {% if is_owner %}
+        </form>
         {% endif %}
-
-        {% if is_owner and record.current_status != 'Hidden' %}
-        <button class="interact_housing_button link_button" onclick="window.location.href='/hide_record?record_id={{ record.id }}'">Деактивировать объявление</button>
-        {% endif %}
-
-        <button class="interact_housing_button link_button" onclick="window.location.href='/profile?user_id={{ user.id }}'">Посмотреть профиль</button>
 
     </div>
 </div>

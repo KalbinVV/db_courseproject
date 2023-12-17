@@ -45,7 +45,7 @@ def should_be_authed(function: Callable) -> Callable:
     @wraps(function)
     def decorator(*args, **kwargs) -> Response | str:
         if not is_user_authed():
-            return make_response("You are not authed", 400)
+            return make_response("Вы не авторизированы!", 400)
 
         return function(*args, **kwargs)
 
@@ -67,7 +67,7 @@ def should_be_owner_of_housing(function):
         housing: models.Housings = models.Housings.query.filter_by(id=housing_id).first_or_404()
 
         if housing.owner_id != user.id:
-            return 400, "You should be owner of this housing"
+            return 400, "Вы должны быть владельцем данной недвижимости!"
 
         return function(*args, **kwargs)
 

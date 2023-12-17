@@ -223,3 +223,30 @@ def update_profile():
     models.db.session.commit()
 
     return redirect('/profile')
+
+
+@should_be_authed
+def update_record():
+    record_id = int(request.form.get('record_id'))
+
+    record = models.db.get_or_404(models.Records, record_id)
+
+    housing = models.db.get_or_404(models.Housings, record.housing_id)
+
+    user = get_user()
+
+    if user.id != housing.owner_id:
+        return 400, 'Вы должны быть владельцем данной недвижимости!'
+
+    title = str(request.form.get('title'))
+    description = str(request.form.get('description'))
+    price = int(request.form.get('price'))
+
+    record.title = title
+    record.description = description
+    record.price = price
+
+    models.db.session.commit()
+
+    return redirect(f'/view_record?record_id={record.id}')
+
