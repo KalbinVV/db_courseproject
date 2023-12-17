@@ -38,13 +38,25 @@
         <div class="i_space"></div>
         <h2 class="title">{{ user.username }}</h2>
         <p class="summary">
-            <tag>Шаблон профиля</tag>
+            <form method="post" action="/update_profile">
+            <h4>Способы связи: </h4>
+            <hr>
+            <p>Номер телефона:</p>
+            <p><input type="text" value="{{ user.phone_number }}" name="phone_number"></p>
+            <p>Электронная почта:</p>
+            <p><input type="text" value="{{ user.email }}" name="email"></p>
+            {% if user.id == visitor.id %}
+
+            <button type="submit" class="link_button">Обновить данные профиля</button>
+            {% endif %}
+            <hr>
+            </form>
         </p>
     </div>
     <div class="contain_2">
         <div class="row">
             {% for record in records %}
-            {% if (record[1].owner_id == visitor.id) or (record[0].current_status == 'Active') %}
+            {% if (user.id == visitor.id) or (record[0].current_status == 'Active') %}
             <div class="column">
                 <div class="i_contain" onclick="window.location.href='/view_record?record_id={{ record[0].id }}'">
                     <div class="i_cards">

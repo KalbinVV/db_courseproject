@@ -164,11 +164,12 @@ def view_record():
     is_owner = housing.owner_id == user.id
 
     if not is_owner and record.current_status == 'Hidden':
-        return 404, 'Объявление не найдено либо скрыто'
+        return 'Объявление не найдено либо скрыто'
 
     return render_template('view_record.html',
                            record=record,
-                           is_owner=is_owner)
+                           is_owner=is_owner,
+                           user=models.db.get_or_404(models.User, int(housing.owner_id)))
 
 
 @should_be_authed
@@ -208,3 +209,17 @@ def hide_record():
     models.db.session.commit()
 
     return redirect(f'/view_record?record_id={record_id}')
+
+
+@should_be_authed
+def update_profile():
+    phone_number = request.form.get('phone_number')
+    email = request.form.get('email')
+
+    user = get_user()
+    user.phone_number = phone_number
+    user.email = email
+
+    models.db.session.commit()
+
+    return redirect('/profile')

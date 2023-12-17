@@ -55,6 +55,7 @@ def main() -> None:
         '/view_record': (profile.view_record, ['GET']),
         '/activate_record': (profile.activate_record, ['GET']),
         '/hide_record': (profile.hide_record, ['GET']),
+        '/update_profile': (profile.update_profile, ['POST']),
         # Search section
         '/search': (search.search_page, ['GET'])
     }

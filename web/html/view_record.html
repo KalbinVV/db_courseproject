@@ -50,6 +50,13 @@
         </p>
         <p>Цена: {{ record.price }}</p>
         <hr>
+        <h4>Способы связи: </h4>
+
+        <p>Номер телефона: {{user.phone_number if user.phone_number else 'Не указан'}}</p>
+        <p>Электронная почта: {{user.email if user.email else 'Не указана'}}</p>
+
+        <hr>
+
         <button class="interact_housing_button link_button" onclick="window.location.href='/view_housing?housing_id={{ record.housing_id }}'">Посмотреть жильё</button>
 
         {% if is_owner and record.current_status == 'Hidden' %}
@@ -59,6 +66,8 @@
         {% if is_owner and record.current_status != 'Hidden' %}
         <button class="interact_housing_button link_button" onclick="window.location.href='/hide_record?record_id={{ record.id }}'">Деактивировать объявление</button>
         {% endif %}
+
+        <button class="interact_housing_button link_button" onclick="window.location.href='/profile?user_id={{ user.id }}'">Посмотреть профиль</button>
 
     </div>
 </div>
