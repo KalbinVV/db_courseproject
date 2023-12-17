@@ -3,7 +3,7 @@ from flask import request
 import data.utils
 import models
 from security import should_be_authed, get_user, should_be_owner_of_housing
-from utils.locations_utils import parse_address
+from utils.locations_utils import parse_address, is_location_exists
 
 import sqlalchemy.exc
 
@@ -59,19 +59,11 @@ def add_housing():
     department_number = request.form.get('department_number')
     housing_type_id = request.form.get('housing_type_id')
 
-    address = models.Addresses(street_id=int(street_id))
-
-    args = parse_address(address)
-
-    if models.Addresses.query.filter_by(street_id=int(street_id),
-                                        country_id=int(args['country'].id),
-                                        house_number=house_number,
-                                        department_number=department_number).count() > 0:
+    if is_location_exists(int(street_id), str(house_number), department_number):
         return {'successful': False, 'message': 'Адрес занят!'}
 
-    address.house_number = house_number if house_number else None
-    address.country_id = int(args['country'].id)
-    address.settlement_id = int(args['settlement'].id)
+    address = models.Addresses(street_id=int(street_id),
+                               house_number=house_number)
 
     comforts = _parse_comforts()
 

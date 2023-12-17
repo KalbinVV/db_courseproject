@@ -1,4 +1,5 @@
 import hashlib
+import random
 
 import models
 
@@ -150,3 +151,25 @@ def generate_users():
 
         models.db.session.add(user)
         models.db.session.commit()
+
+
+def generate_housings():
+    housings_types: list[models.HousingsTypes] = models.HousingsTypes.query.all()
+    streets: list[models.Streets] = models.Streets.query.all()
+
+    for user in models.User.query.all():
+        for i in range(100):
+            housing_type = housings_types[random.randint(0, len(housings_types))]
+
+            name = f"{housing_type.name}-{user.username}-{i}"
+            description = f"Описание-{housing_type.name}-{user.username}-{i}"
+
+            house_number = str(random.randint(1, 100))
+
+            if housing_type.required_department_number:
+                department_number = str(random.randint(1, 100))
+
+            street_id = streets[random.randint(0, len(streets))]
+
+
+

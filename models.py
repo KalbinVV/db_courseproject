@@ -80,8 +80,8 @@ class Addresses(db.Model):
     department_number: Mapped[int] = mapped_column(String(5), nullable=True)
 
     street_id: Mapped[int] = mapped_column(ForeignKey('streets.id', ondelete="CASCADE"), nullable=False)
-    settlement_id: Mapped[int] = mapped_column(ForeignKey('settlements.id', ondelete='CASCADE'), nullable=False)
-    country_id: Mapped[int] = mapped_column(ForeignKey('countries.id', ondelete='CASCADE'), nullable=False)
+    settlement_id: Mapped[int] = mapped_column(ForeignKey('settlements.id', ondelete='CASCADE'), nullable=True)
+    country_id: Mapped[int] = mapped_column(ForeignKey('countries.id', ondelete='CASCADE'), nullable=True)
 
 
 class HousingsTypes(db.Model):
@@ -203,7 +203,7 @@ def create_triggers():
     ''')
 
     address_trigger = text('''\
-    CREATE OR REPLACE TRIGGER on_address_insert BEFORE INSERT ON addresses
+    CREATE OR REPLACE TRIGGER on_address_insert_unique BEFORE INSERT ON addresses
     FOR EACH ROW
     EXECUTE FUNCTION check_address_is_unique();''')
 
@@ -251,6 +251,37 @@ def create_triggers():
         FOR EACH ROW
         EXECUTE FUNCTION check_record_is_not_rented();''')
 
+    update_address_info_after_insert = text('''\
+            CREATE OR REPLACE FUNCTION update_address_info_after_insert()
+            RETURNS trigger AS
+            $$
+            DECLARE
+                p_country_id integer;
+                p_settlement_id integer;
+            BEGIN
+                SELECT settlement_id INTO p_settlement_id from settlements
+                join streets on settlements.id = streets.settlement_id
+                where streets.id = NEW.street_id
+                limit 1;
+                
+                SELECT country_id into p_country_id from countries
+                join settlements on settlements.country_id = countries.id
+                where settlements.id = p_settlement_id
+                limit 1;
+                
+                NEW.country_id := p_country_id;
+                NEW.settlement_id := p_settlement_id;
+
+                RETURN NEW;
+            END;
+            $$ LANGUAGE plpgsql;
+        ''')
+
+    update_address_info_after_insert_trigger = text('''\
+            CREATE OR REPLACE TRIGGER on_address_insert_data BEFORE INSERT ON addresses
+            FOR EACH ROW
+            EXECUTE FUNCTION update_address_info_after_insert();''')
+
     db.session.execute(unique_address_trigger_function)
     db.session.execute(address_trigger)
 
@@ -259,5 +290,8 @@ def create_triggers():
 
     db.session.execute(rented_delete_record_check_function)
     db.session.execute(rented_record_trigger)
+
+    db.session.execute(update_address_info_after_insert)
+    db.session.execute(update_address_info_after_insert_trigger)
 
     db.session.commit()
