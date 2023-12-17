@@ -41,9 +41,9 @@
         <p class="summary">
             <tag>Поиск жилья</tag>
         </p>
-        <form id="add_housing_form">
+        <form id="search_form">
             <p>Выберете тип жилья: </p>
-            <select class="housings_types_select">
+            <select class="housings_types_select" multiple="multiple" required>
                 {% for housing_type in housings_types %}
                 <option value="{{ housing_type.id }}"
                         data-department_number_required="{{ housing_type.department_number_required }}"
@@ -65,27 +65,23 @@
 
             <p>Выберете нас. пункт: </p>
             <p>
-                <select class="settlements_select">
+                <select class="settlements_select" required>
                 </select>
             </p>
 
             <p>Выберете улицу: </p>
             <p>
-                <select class="streets_select" name="street_id" required>
+                <select class="streets_select" name="street_id">
                 </select>
             </p>
-
-            <p>Введите номер дома: </p>
             <p>
-                <input name="house_number" id="house_number" required/>
+                <button type="button" id="hide_street_button">Не указывать улицу</button>
             </p>
 
-            <div class="department_number_container">
-                <p>Введите номер квартиры: </p>
-                <p>
-                    <input name="department_number" id="department_number"/>
-                </p>
-            </div>
+            <p> Минимальная цена: </p>
+            <input name="min_price" id="min_price" type="number" min="100" max="1000000" value="100">
+            <p> Максимальная цена: </p>
+            <input name="max_price" id="max_price" type="number" min="100" max="1000000" value="1000">
 
             <hr>
 
@@ -113,6 +109,11 @@
             </div>
             <button type="submit" class="interact_housing_button link_button">Поиск</button>
         </form>
+    </div>
+
+    <div class="contain_2">
+        <div class="row records_container">
+        </div>
     </div>
 </div>
 

@@ -101,6 +101,10 @@ def export_data():
 
 def get_streets_by_like_name():
     settlement_id = request.args.get('settlement_id')
+
+    if settlement_id == '':
+        return []
+
     term = request.args.get('search')
 
     search = "%{}%".format(term)

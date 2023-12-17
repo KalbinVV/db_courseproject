@@ -1,0 +1,64 @@
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+</head>
+<body>
+<section class="top-area">
+    <div class="header-area">
+        <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy" data-minus-value-desktop="70"
+             data-minus-value-mobile="55" data-speed="1000">
+
+            <div class="container">
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="/">Dolphin<span>Rieltor</span></a>
+
+                </div>
+                <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
+                    <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                        <li class="scroll"><a href="/">Домашняя страница</a></li>
+                        <li class="scroll only_for_authed"><a href="/my_housings">Жильё</a></li>
+                        <li class="scroll only_for_authed"><a href="/logout">Выйти</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+</section>
+<br>
+<div class="main" align="center">
+    <img class="pf" src="/static/images/search_icon.png"/>
+    <div class="contain">
+        <div class="i_space"></div>
+        <h2 class="title">Результаты поиска</h2>
+        <p class="summary">
+        </p>
+    </div>
+    <div class="contain_2">
+        <div class="row">
+            {{ records }}
+
+            {% for record in records %}
+            <div class="column">
+                <div class="i_contain" onclick="window.location.href='/view_record?record_id={{ record[0].id }}'">
+                    <div class="i_cards">
+                        <img class="icon_logo" src="/static/images/{{ record[1].icon }}"/>
+                        <h2 class="i_title">{{ record[0].title }}</h2>
+                        <p class="i_summary">{{ record[0].description }}</p>
+                        <p class="i_summary">Цена: {{ record[0].price }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

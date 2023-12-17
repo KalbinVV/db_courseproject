@@ -2,6 +2,10 @@ import hashlib
 import random
 
 import models
+from utils.locations_utils import is_location_exists
+
+USERS_AMOUNTS = 10
+HOUSINGS_PER_USER = 20
 
 
 def export_data():
@@ -18,6 +22,10 @@ def export_data():
     export_comforts()
 
     generate_users()
+
+    generate_housings()
+
+    generate_records()
 
 
 def export_settlements_types():
@@ -142,7 +150,7 @@ def export_comforts():
 
 
 def generate_users():
-    for i in range(100):
+    for i in range(USERS_AMOUNTS):
         user = models.User(username=f'user{i}',
                            hashed_password=hashlib.sha256('pass'.encode()).hexdigest(),
                            email=f'user{i}mail@mail.com',
@@ -156,20 +164,74 @@ def generate_users():
 def generate_housings():
     housings_types: list[models.HousingsTypes] = models.HousingsTypes.query.all()
     streets: list[models.Streets] = models.Streets.query.all()
+    comforts: list[models.Comforts] = models.Comforts.query.all()
 
     for user in models.User.query.all():
-        for i in range(100):
-            housing_type = housings_types[random.randint(0, len(housings_types))]
+        for i in range(HOUSINGS_PER_USER):
+            housing_type = housings_types[random.randint(0, len(housings_types) - 1)]
 
             name = f"{housing_type.name}-{user.username}-{i}"
             description = f"Описание-{housing_type.name}-{user.username}-{i}"
 
             house_number = str(random.randint(1, 100))
 
+            department_number = None
+
             if housing_type.required_department_number:
                 department_number = str(random.randint(1, 100))
 
-            street_id = streets[random.randint(0, len(streets))]
+            street_id = streets[random.randint(0, len(streets) - 1)].id
+
+            if is_location_exists(street_id, house_number, department_number):
+                continue
+
+            address = models.Addresses(street_id=street_id,
+                                       house_number=house_number,
+                                       department_number=department_number)
+
+            models.db.session.add(address)
+            models.db.session.commit()
+
+            housing = models.Housings(name=name,
+                                      description=description,
+                                      owner_id=user.id,
+                                      address_id=address.id,
+                                      housing_type_id=housing_type.id)
+
+            models.db.session.add(housing)
+            models.db.session.commit()
+
+            comforts_records = []
+
+            for comfort in comforts:
+                comforts_records.append((comfort.id, random.randint(comfort.min_value, comfort.max_value)))
+
+            for comfort_record in comforts_records:
+                association_record = models.ComfortsAssociationTable(housing_id=housing.id,
+                                                                     comfort_id=comfort_record[0],
+                                                                     value=comfort_record[1])
+
+                models.db.session.add(association_record)
+
+            models.db.session.commit()
 
 
+def generate_records():
+    users: list[models.User] = models.User.query.all()
 
+    for user in users:
+        housings: list[models.Housings] = models.Housings.query.filter_by(owner_id=user.id).all()
+
+        for housing in housings:
+            title = f'Сдам {housing.name} от {user.username}'
+            description = f'Описание для объявления'
+            price = random.randint(100, 1000000)
+
+            record = models.Records(housing_id=housing.id,
+                                    current_status='Active',
+                                    title=title,
+                                    description=description,
+                                    price=price)
+
+            models.db.session.add(record)
+            models.db.session.commit()

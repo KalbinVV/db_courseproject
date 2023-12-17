@@ -157,8 +157,10 @@ class Records(db.Model):
     current_status: Mapped[str] = mapped_column(String(30), default='Hidden', nullable=False)
     visitors_amount: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
 
-    created_time: Mapped[datetime.datetime] = mapped_column(DateTime(timezone=True), nullable=False)
-    updated_time: Mapped[datetime.datetime] = mapped_column(DateTime(timezone=True), nullable=False)
+    created_time: Mapped[datetime.datetime] = mapped_column(DateTime(timezone=True), nullable=False,
+                                                            default=datetime.datetime.utcnow())
+    updated_time: Mapped[datetime.datetime] = mapped_column(DateTime(timezone=True), nullable=False,
+                                                            default=datetime.datetime.utcnow())
 
     CheckConstraint("created_time >= updated_time", name="records_time_check")
 
