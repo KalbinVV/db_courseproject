@@ -3,7 +3,7 @@ import os.path
 from flask import Flask, render_template
 
 from models import db
-from pages import auth, users, profile, api
+from pages import auth, users, profile, api, search
 from security import is_user_authed
 from utils.housings_utils import get_housings_statistic
 from utils.locations_utils import get_settlements
@@ -52,7 +52,9 @@ def main() -> None:
         '/remove_housing': (profile.remove_housing, ['PUT', 'GET']),
         '/change_housing': (profile.change_housing, ['GET', 'POST']),
         '/create_record': (profile.create_record, ['GET', 'POST']),
-        '/view_record': (profile.view_record, ['GET'])
+        '/view_record': (profile.view_record, ['GET']),
+        # Search section
+        '/search': (search.search_page, ['GET'])
     }
 
     for routing, args in pages_routing.items():

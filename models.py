@@ -49,8 +49,8 @@ class Settlements(db.Model):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     name: Mapped[str] = mapped_column(String(80), nullable=False)
 
-    country_id: Mapped[int] = mapped_column(ForeignKey('countries.id'), nullable=False, index=True)
-    settlement_type_id: Mapped[int] = mapped_column(ForeignKey('settlements_types.id'), nullable=False)
+    country_id: Mapped[int] = mapped_column(ForeignKey('countries.id', ondelete="CASCADE"), nullable=False, index=True)
+    settlement_type_id: Mapped[int] = mapped_column(ForeignKey('settlements_types.id', ondelete="CASCADE"), nullable=False)
 
 
 class StreetsTypes(db.Model):
@@ -66,18 +66,18 @@ class Streets(db.Model):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     name: Mapped[str] = mapped_column(String(80), nullable=False)
 
-    settlement_id: Mapped[int] = mapped_column(ForeignKey('settlements.id'), nullable=False, index=True)
-    street_type_id: Mapped[int] = mapped_column(ForeignKey('streets_types.id'), nullable=False)
+    settlement_id: Mapped[int] = mapped_column(ForeignKey('settlements.id', ondelete="CASCADE"), nullable=False, index=True)
+    street_type_id: Mapped[int] = mapped_column(ForeignKey('streets_types.id', ondelete="CASCADE"), nullable=False)
 
 
 class Addresses(db.Model):
     __tablename__ = 'addresses'
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    house_number: Mapped[int] = mapped_column(Integer, nullable=False)
+    house_number: Mapped[int] = mapped_column(String(5), nullable=False)
     department_number: Mapped[int] = mapped_column(String(5), nullable=True)
 
-    street_id: Mapped[int] = mapped_column(ForeignKey('streets.id'), nullable=False)
+    street_id: Mapped[int] = mapped_column(ForeignKey('streets.id', ondelete="CASCADE"), nullable=False)
 
 
 class HousingsTypes(db.Model):
@@ -97,10 +97,10 @@ class Housings(db.Model):
     name: Mapped[str] = mapped_column(String(100), nullable=False)
     description: Mapped[str] = mapped_column(String(255), nullable=False)
 
-    housing_type_id: Mapped[int] = mapped_column(ForeignKey('housings_types.id'), nullable=False)
-    owner_id: Mapped[int] = mapped_column(ForeignKey('users.id'), nullable=False, index=True)
+    housing_type_id: Mapped[int] = mapped_column(ForeignKey('housings_types.id', ondelete="CASCADE"), nullable=False)
+    owner_id: Mapped[int] = mapped_column(ForeignKey('users.id', ondelete="CASCADE"), nullable=False, index=True)
     renter_id: Mapped[int] = mapped_column(ForeignKey('users.id'), index=True, nullable=True)
-    address_id: Mapped[int] = mapped_column(ForeignKey('addresses.id'), nullable=False)
+    address_id: Mapped[int] = mapped_column(ForeignKey('addresses.id', ondelete="CASCADE"), nullable=False)
 
     created_at: Mapped[datetime.datetime] = mapped_column(DateTime(timezone=True),
                                                           nullable=False,
@@ -135,8 +135,8 @@ class ComfortsAssociationTable(db.Model):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
 
-    comfort_id: Mapped[int] = mapped_column(ForeignKey('comforts.id'), nullable=False)
-    housing_id: Mapped[int] = mapped_column(ForeignKey('housings.id'), nullable=False)
+    comfort_id: Mapped[int] = mapped_column(ForeignKey('comforts.id', ondelete="CASCADE"), nullable=False)
+    housing_id: Mapped[int] = mapped_column(ForeignKey('housings.id', ondelete="CASCADE"), nullable=False)
     value: Mapped[int] = mapped_column(Integer, nullable=False)
 
 
@@ -148,7 +148,7 @@ class Records(db.Model):
     description: Mapped[str] = mapped_column(String(400), nullable=False)
     price: Mapped[int] = mapped_column(Integer, nullable=False)
 
-    housing_id: Mapped[int] = mapped_column(ForeignKey('housings.id'), nullable=False)
+    housing_id: Mapped[int] = mapped_column(ForeignKey('housings.id', ondelete="CASCADE"), nullable=False)
 
     current_status: Mapped[str] = mapped_column(String(30), default='Hidden', nullable=False)
     visitors_amount: Mapped[int] = mapped_column(Integer, nullable=False, default=0)

@@ -62,7 +62,7 @@ def add_housing():
     comforts = _parse_comforts()
 
     if department_number != '':
-        address.department_number = department_number
+        address.department_number = str(department_number)
 
     models.db.session.add(address)
     models.db.session.commit()

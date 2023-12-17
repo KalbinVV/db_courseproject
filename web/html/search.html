@@ -1,0 +1,123 @@
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/select2.min.css') }}">
+</head>
+<body>
+<section class="top-area">
+    <div class="header-area">
+        <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy" data-minus-value-desktop="70"
+             data-minus-value-mobile="55" data-speed="1000">
+
+            <div class="container">
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="/">Dolphin<span>Rieltor</span></a>
+
+                </div>
+                <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
+                    <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                        <li class="scroll"><a href="/">Домашняя страница</a></li>
+                        <li class="scroll only_for_authed"><a href="/logout">Объявления</a></li>
+                        <li class="scroll only_for_authed"><a href="/profile">Личный кабинет</a></li>
+                        <li class="scroll only_for_authed"><a href="/logout">Выйти</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+</section>
+<br>
+<div class="main" align="center">
+    <img class="pf type_icon" src="/static/images/search_icon.png"/>
+    <div class="contain">
+        <div class="i_space"></div>
+        <p class="summary">
+            <tag>Поиск жилья</tag>
+        </p>
+        <form id="add_housing_form">
+            <p>Выберете тип жилья: </p>
+            <select class="housings_types_select">
+                {% for housing_type in housings_types %}
+                <option value="{{ housing_type.id }}"
+                        data-department_number_required="{{ housing_type.department_number_required }}"
+                        data-icon="{{ housing_type.icon }}">
+                    {{ housing_type.name }}
+                </option>
+                {% endfor %}
+            </select>
+
+
+            <p>Выберете страну: </p>
+            <p>
+                <select class="countries_select">
+                    {% for country in countries %}
+                    <option value="{{ country['id'] }}">{{ country['name'] }}</option>
+                    {% endfor %}
+                </select>
+            </p>
+
+            <p>Выберете нас. пункт: </p>
+            <p>
+                <select class="settlements_select">
+                </select>
+            </p>
+
+            <p>Выберете улицу: </p>
+            <p>
+                <select class="streets_select" name="street_id" required>
+                </select>
+            </p>
+
+            <p>Введите номер дома: </p>
+            <p>
+                <input name="house_number" id="house_number" required/>
+            </p>
+
+            <div class="department_number_container">
+                <p>Введите номер квартиры: </p>
+                <p>
+                    <input name="department_number" id="department_number"/>
+                </p>
+            </div>
+
+            <hr>
+
+            <h2>Удобства: </h2>
+            <h4>Выберете минимальные значения</h4>
+
+            <hr>
+
+            <div id="comforts_list">
+
+            {% for comfort in comforts %}
+
+                <h3>{{ comfort.name }} </h3>
+                <h5>{{ comfort.description }}</h5>
+
+                <input type="range" min="{{ comfort.min }}"
+                       max="{{ comfort.max }}"
+                       value="0"
+                       class="comfort_range"
+                       data-id="{{ comfort.id }}"
+                       id="comfort{{ comfort.id }}"/>
+                <span id="value-comfort{{comfort.id}}">0</span> {{ comfort.unit_short }} ({{ comfort.unit }})
+
+            {% endfor %}
+            </div>
+            <button type="submit" class="interact_housing_button link_button">Поиск</button>
+        </form>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/select2.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/search.js') }}"></script>
+</body>
+</html>
