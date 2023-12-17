@@ -33,8 +33,8 @@ def get_search_result():
     max_price = request.args.get('max_price')
     comforts = _parse_comforts()
 
-    records = models.Records.query\
-        .filter(models.Addresses.settlement_id == int(settlement_id))\
+    records = models.Records.query \
+        .filter(models.Addresses.settlement_id == int(settlement_id)) \
         .filter(models.Records.price >= int(min_price), models.Records.price <= int(max_price))
 
     if street_id is not None and street_id != '':
