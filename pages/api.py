@@ -5,6 +5,8 @@ import models
 from security import should_be_authed, get_user, should_be_owner_of_housing
 from utils.locations_utils import parse_address
 
+import sqlalchemy.exc
+
 
 def get_settlements_by_country():
     country_id = request.args.get('country_id')
@@ -57,20 +59,26 @@ def add_housing():
     department_number = request.form.get('department_number')
     housing_type_id = request.form.get('housing_type_id')
 
-    address = models.Addresses(house_number=str(house_number),
-                               street_id=int(street_id))
+    address = models.Addresses(street_id=int(street_id))
 
     args = parse_address(address)
 
+    if models.Addresses.query.filter_by(street_id=int(street_id),
+                                        country_id=int(args['country'].id),
+                                        house_number=house_number,
+                                        department_number=department_number).count() > 0:
+        return {'successful': False, 'message': 'Адрес занят!'}
+
+    address.house_number = house_number if house_number else None
     address.country_id = int(args['country'].id)
     address.settlement_id = int(args['settlement'].id)
 
     comforts = _parse_comforts()
 
-    if department_number != '':
-        address.department_number = str(department_number)
+    address.department_number = department_number if department_number else None
 
     models.db.session.add(address)
+
     models.db.session.commit()
 
     housing = models.Housings(owner_id=user.id,
@@ -90,7 +98,7 @@ def add_housing():
         models.db.session.add(comfort_association)
         models.db.session.commit()
 
-    return str(housing.id)
+    return {'successful': True, 'housing_id': housing.id}
 
 
 def export_data():

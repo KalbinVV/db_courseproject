@@ -76,7 +76,11 @@ $(document).ready(function() {
                 comforts_amount: comforts.length
             },
             success: function(response) {
-                window.location.href = '/view_housing?housing_id=' + response
+                if (response.successful){
+                    window.location.href = '/view_housing?housing_id=' + response.housing_id
+                } else {
+                    alert('Не удалось создать объявление: ' + response.message)
+                }
             },
             error: function(response) {
                 console.log(response)

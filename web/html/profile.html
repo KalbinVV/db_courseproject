@@ -37,14 +37,15 @@
     <div class="contain">
         <div class="i_space"></div>
         <h2 class="title">{{ user.username }}</h2>
+        <h3>{{ user.first_name if user.first_name else '' }} {{ user.second_name if user.second_name else '' }}</h3>
         <p class="summary">
             <form method="post" action="/update_profile">
             <h4>Способы связи: </h4>
             <hr>
             <p>Номер телефона:</p>
-            <p><input type="text" value="{{ user.phone_number }}" name="phone_number"></p>
+            <p><input type="text" value="{{ user.phone_number if user.phone_number else '' }}" name="phone_number"></p>
             <p>Электронная почта:</p>
-            <p><input type="text" value="{{ user.email }}" name="email"></p>
+            <p><input type="text" value="{{ user.email if user.email else '' }}" name="email"></p>
             {% if user.id == visitor.id %}
 
             <button type="submit" class="link_button">Обновить данные профиля</button>

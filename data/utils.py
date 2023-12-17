@@ -1,3 +1,5 @@
+import hashlib
+
 import models
 
 
@@ -13,6 +15,8 @@ def export_data():
     export_orenburgs_streets()
 
     export_comforts()
+
+    generate_users()
 
 
 def export_settlements_types():
@@ -135,3 +139,14 @@ def export_comforts():
         models.db.session.add(comfort_mode)
         models.db.session.commit()
 
+
+def generate_users():
+    for i in range(100):
+        user = models.User(username=f'user{i}',
+                           hashed_password=hashlib.sha256('pass'.encode()).hexdigest(),
+                           email=f'user{i}mail@mail.com',
+                           first_name=f'Иван {i}',
+                           second_name=f'Иванов')
+
+        models.db.session.add(user)
+        models.db.session.commit()

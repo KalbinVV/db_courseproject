@@ -2,7 +2,7 @@ import os.path
 
 from flask import Flask, render_template
 
-from models import db
+from models import db, create_triggers
 from pages import auth, users, profile, api, search
 from security import is_user_authed
 from utils.housings_utils import get_housings_statistic
@@ -30,6 +30,7 @@ def index() -> str:
 def main() -> None:
     with app.app_context():
         db.create_all()
+        create_triggers()
 
     pages_routing = {
         # Authorization section

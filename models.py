@@ -4,6 +4,8 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Integer, String, ForeignKey, DateTime, Boolean, CheckConstraint
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
+from sqlalchemy.sql import text
+
 
 class Base(DeclarativeBase):
     pass
@@ -176,3 +178,86 @@ class History(db.Model):
     CheckConstraint("rent_end > rent_start", name="history_rent_time_check")
 
     price: Mapped[int] = mapped_column(Integer, nullable=False)
+
+
+def create_triggers():
+    unique_address_trigger_function = text('''\
+        CREATE OR REPLACE FUNCTION check_address_is_unique()
+        RETURNS trigger AS
+        $$
+        DECLARE
+            addresses_amount integer;
+        BEGIN
+            SELECT count(*) into addresses_amount FROM addresses
+            WHERE street_id = NEW.street_id 
+            and department_number = NEW.department_number 
+            and house_number = NEW.house_number;
+            
+            IF addresses_amount > 0 THEN
+                RAISE EXCEPTION 'Данный адрес уже был занят!';
+            END IF;
+            
+            RETURN NEW;
+        END;
+        $$ LANGUAGE plpgsql;
+    ''')
+
+    address_trigger = text('''\
+    CREATE OR REPLACE TRIGGER on_address_insert BEFORE INSERT ON addresses
+    FOR EACH ROW
+    EXECUTE FUNCTION check_address_is_unique();''')
+
+    rented_delete_housing_check_function = text('''\
+        CREATE OR REPLACE FUNCTION check_housings_is_not_rented()
+        RETURNS trigger AS
+        $$
+        BEGIN
+            IF OLD.renter_id != NULL THEN
+                RAISE EXCEPTION 'Невозможно удалить жильё, которое сейчас арендуется!';
+            END IF;
+            
+            RETURN OLD;
+        END;
+        $$ LANGUAGE plpgsql;
+    ''')
+
+    rented_housing_trigger = text('''\
+    CREATE OR REPLACE TRIGGER on_housing_delete BEFORE DELETE ON housings
+    FOR EACH ROW
+    EXECUTE FUNCTION check_housings_is_not_rented();''')
+
+    rented_delete_record_check_function = text('''\
+        CREATE OR REPLACE FUNCTION check_record_is_not_rented()
+        RETURNS trigger AS
+        $$
+        DECLARE
+            p_renter_id integer;
+        BEGIN
+            SELECT housings.renter_id INTO p_renter_id from housings
+            where id = OLD.housing_id
+            limit 1;
+        
+            IF p_renter_id != NULL THEN
+                RAISE EXCEPTION 'Невозможно удалить объявление, которое сейчас арендуется!';
+            END IF;
+            
+            RETURN OLD;
+        END;
+        $$ LANGUAGE plpgsql;
+    ''')
+
+    rented_record_trigger = text('''\
+        CREATE OR REPLACE TRIGGER on_record_delete BEFORE DELETE ON records
+        FOR EACH ROW
+        EXECUTE FUNCTION check_record_is_not_rented();''')
+
+    db.session.execute(unique_address_trigger_function)
+    db.session.execute(address_trigger)
+
+    db.session.execute(rented_delete_housing_check_function)
+    db.session.execute(rented_housing_trigger)
+
+    db.session.execute(rented_delete_record_check_function)
+    db.session.execute(rented_record_trigger)
+
+    db.session.commit()
