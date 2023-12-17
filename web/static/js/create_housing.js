@@ -2,6 +2,14 @@ $(document).ready(function() {
     $('.countries_select').select2()
     $('.settlements_select').select2()
 
+    $('.comfort_range').change(function(e){
+        const current_target = e.currentTarget
+
+        const span_value = document.querySelector('#value-'+current_target.id)
+
+        span_value.innerHTML = current_target.value
+    })
+
     $('.streets_select').select2({
         ajax: {
                 url: '/api/get_streets_by_like_name',
@@ -34,8 +42,25 @@ $(document).ready(function() {
     update_department_number_visible()
     update_icon()
 
+    function get_comforts() {
+        const comforts_list = document.querySelectorAll('#comforts_list input')
+
+        let comforts = []
+
+        comforts_list.forEach(comfort => {
+            comforts.push({id: comfort.dataset.id,
+                           value: comfort.value})
+        })
+
+        return comforts
+    }
+
     $('#add_housing_form').submit(function(e){
         e.preventDefault()
+
+        comforts = get_comforts()
+
+        console.log(comforts)
 
         $.ajax({
             method: "POST",
@@ -46,7 +71,9 @@ $(document).ready(function() {
                 street_id: $('.streets_select').val(),
                 house_number: $('#house_number').val(),
                 department_number: $('#department_number').val(),
-                housing_type_id: $('.housings_types_select').val()
+                housing_type_id: $('.housings_types_select').val(),
+                comforts: comforts,
+                comforts_amount: comforts.length
             },
             success: function(response) {
                 window.location.href = '/my_housings'

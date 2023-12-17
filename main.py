@@ -50,7 +50,9 @@ def main() -> None:
         '/create_housing': (profile.create_housing, ['GET', 'POST']),
         '/view_housing': (profile.view_housing, ['GET']),
         '/remove_housing': (profile.remove_housing, ['PUT', 'GET']),
-        '/change_housing': (profile.change_housing, ['GET', 'POST'])
+        '/change_housing': (profile.change_housing, ['GET', 'POST']),
+        '/create_record': (profile.create_record, ['GET', 'POST']),
+        '/view_record': (profile.view_record, ['GET'])
     }
 
     for routing, args in pages_routing.items():

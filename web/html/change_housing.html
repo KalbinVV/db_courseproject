@@ -42,7 +42,7 @@
             <tag>Изменить жильё</tag>
         </p>
         <form id="change_housing_form" method="post" action="/change_housing">
-            <input id="house_id" value="{{ housing.id }}" name="housing_id" hidden>
+            <input id="housing_id" value="{{ housing.id }}" name="housing_id" hidden>
             <p>Выберете тип жилья: </p>
             <select class="housings_types_select">
                 <option value="{{ housing_type.id }}"
@@ -94,6 +94,24 @@
                 <p>
                     <input name="department_number" id="department_number" disabled value="{{ address.department_number }}"/>
                 </p>
+            </div>
+
+            <div id="comforts_list">
+
+            {% for comfort in comforts %}
+
+                <h3>{{ comfort.name }} </h3>
+                <h5>{{ comfort.description }}</h5>
+
+                <input type="range" min="{{ comfort.min }}"
+                       max="{{ comfort.max }}"
+                       value="{{ comfort.value }}"
+                       class="comfort_range"
+                       data-id="{{ comfort.id }}"
+                       id="comfort{{ comfort.id }}"/>
+                <span id="value-comfort{{comfort.id}}">0</span> {{ comfort.unit_short }} ({{ comfort.unit }})
+
+            {% endfor %}
             </div>
 
             <p>

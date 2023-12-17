@@ -3,6 +3,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/select2.min.css') }}">
 </head>
 <body>
 <section class="top-area">
@@ -23,7 +24,7 @@
                     <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
                         <li class="scroll"><a href="/">Домашняя страница</a></li>
                         <li class="scroll only_for_authed"><a href="/logout">Объявления</a></li>
-                        <li class="scroll only_for_authed"><a href="/my_housings">Жильё</a></li>
+                        <li class="scroll only_for_authed"><a href="/profile">Личный кабинет</a></li>
                         <li class="scroll only_for_authed"><a href="/logout">Выйти</a></li>
                     </ul>
                 </div>
@@ -34,31 +35,38 @@
 </section>
 <br>
 <div class="main" align="center">
-    <img class="pf" src="/static/images/profile.jpg"/>
+    <img class="pf type_icon" src="/static/images/article_icon.png"/>
+    <div class="i_space"></div>
     <div class="contain">
-        <div class="i_space"></div>
-        <h2 class="title">{{ username }}</h2>
-        <p class="summary">
-            <tag>Шаблон профиля</tag>
-        </p>
-    </div>
-    <div class="contain_2">
-        <div class="row">
-            {% for record in records %}
-            <div class="column">
-                <div class="i_contain" onclick="window.location.href='/view_record?record_id={{ record.id }}'">
-                    <div class="i_cards">
-                        <img class="icon_logo" src="/static/images/article_icon.png"/>
-                        <h2 class="i_title">{{ record.name }}</h2>
-                        <p class="i_summary">{{ record.description }}</p>
-                        <p class="i_summary">Цена: {{ record.price }}</p>
-                    </div>
-                </div>
+        <form id="add_record_form">
+            <input hidden id="housing_id" value="{{ housing_id }}" />
+            <p>Введите заголовок: </p>
+            <p>
+            <div style="text-align: center;">
+                <input name="title" id="title" style="width: 100vh;" required/>
             </div>
-            {% endfor %}
+            <hr>
+            <p>Введите краткое описание: </p>
+            <p>
+            <div style="text-align: center;">
+                <textarea style="resize: none; width: 30rem; height: 20rem;" name="description" id="description" required></textarea>
+            </div>
 
-        </div>
+            <hr>
+
+            <p>Введите цену: <input type="number" id="price" value="1000" min="100" max="1000000"/></p>
+
+            <div class="i_space"></div>
+
+            <p>
+                <button type="submit" class="link_button">Добавить объявление</button>
+            </p>
+        </form>
     </div>
 </div>
+
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/select2.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/create_record.js') }}"></script>
 </body>
 </html>

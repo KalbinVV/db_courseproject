@@ -12,6 +12,8 @@ def export_data():
 
     export_orenburgs_streets()
 
+    export_comforts()
+
 
 def export_settlements_types():
     settlements_types = ['Город']
@@ -106,3 +108,30 @@ def export_orenburgs_streets():
 
             models.db.session.add(street)
             models.db.session.commit()
+
+
+def export_comforts():
+    units = [('Квадратные метры', 'Кв. метры'), ('Штук', 'шт')]
+
+    for unit in units:
+        unit_model = models.Units(name=unit[0],
+                                  short_name=unit[1])
+
+        models.db.session.add(unit_model)
+        models.db.session.commit()
+
+    comforts = [('Количество комнат', 'Количество комнат с учетом кухни', 2, 1, 30),
+                ('Площадь', 'Общая площадь помещения', 1, 5, 500),
+                ('Количество парковочных мест', 'Количество парковочных мест, поставляемых вместе с жильём.', 2, 0, 15),
+                ('Наличие WI-FI', 'Наличие доступа к интернету через WI-FI', 2, 0, 1)]
+
+    for comfort in comforts:
+        comfort_mode = models.Comforts(name=comfort[0],
+                                       description=comfort[1],
+                                       unit_id=comfort[2],
+                                       min_value=comfort[3],
+                                       max_value=comfort[4])
+
+        models.db.session.add(comfort_mode)
+        models.db.session.commit()
+

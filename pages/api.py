@@ -36,6 +36,17 @@ def get_streets_by_settlement():
 
 @should_be_authed
 def add_housing():
+    def _parse_comforts():
+        comforts_list = []
+
+        for i in range(int(request.form.get('comforts_amount'))):
+            comfort_id = int(request.form.get(f'comforts[{i}][id]'))
+            comfort_value = int(request.form.get(f'comforts[{i}][value]'))
+
+            comforts_list.append({'id': comfort_id, 'value': comfort_value})
+
+        return comforts_list
+
     user = get_user()
 
     name = request.form.get('name')
@@ -47,6 +58,8 @@ def add_housing():
 
     address = models.Addresses(house_number=str(house_number),
                                street_id=street_id)
+
+    comforts = _parse_comforts()
 
     if department_number != '':
         address.department_number = department_number
@@ -62,6 +75,14 @@ def add_housing():
 
     models.db.session.add(housing)
     models.db.session.commit()
+
+    for comfort in comforts:
+        comfort_association = models.ComfortsAssociationTable(comfort_id=comfort['id'],
+                                                              housing_id=housing.id,
+                                                              value=comfort['value'])
+
+        models.db.session.add(comfort_association)
+        models.db.session.commit()
 
     return {'successful': True}
 

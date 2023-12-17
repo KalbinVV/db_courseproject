@@ -98,6 +98,30 @@
                 </p>
             </div>
 
+            <hr>
+
+            <h2>Удобства: </h2>
+
+            <hr>
+
+            <div id="comforts_list">
+
+            {% for comfort in comforts %}
+
+                <h3>{{ comfort.name }} </h3>
+                <h5>{{ comfort.description }}</h5>
+
+                <input type="range" min="{{ comfort.min }}"
+                       max="{{ comfort.max }}"
+                       value="0"
+                       class="comfort_range"
+                       data-id="{{ comfort.id }}"
+                       id="comfort{{ comfort.id }}"/>
+                <span id="value-comfort{{comfort.id}}">0</span> {{ comfort.unit_short }} ({{ comfort.unit }})
+
+            {% endfor %}
+            </div>
+
             <p>
                 <button type="submit" class="link_button">Добавить жильё</button>
             </p>

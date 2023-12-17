@@ -3,6 +3,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/select2.min.css') }}">
 </head>
 <body>
 <section class="top-area">
@@ -23,7 +24,7 @@
                     <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
                         <li class="scroll"><a href="/">Домашняя страница</a></li>
                         <li class="scroll only_for_authed"><a href="/logout">Объявления</a></li>
-                        <li class="scroll only_for_authed"><a href="/my_housings">Жильё</a></li>
+                        <li class="scroll only_for_authed"><a href="/profile">Личный кабинет</a></li>
                         <li class="scroll only_for_authed"><a href="/logout">Выйти</a></li>
                     </ul>
                 </div>
@@ -34,31 +35,21 @@
 </section>
 <br>
 <div class="main" align="center">
-    <img class="pf" src="/static/images/profile.jpg"/>
+    <img class="pf" src="/static/images/article_icon.png"/>
     <div class="contain">
         <div class="i_space"></div>
-        <h2 class="title">{{ username }}</h2>
+        <hr>
+        <h2 class="title">{{ record.title }}</h2>
         <p class="summary">
-            <tag>Шаблон профиля</tag>
+            {{ record.description }}
         </p>
-    </div>
-    <div class="contain_2">
-        <div class="row">
-            {% for record in records %}
-            <div class="column">
-                <div class="i_contain" onclick="window.location.href='/view_record?record_id={{ record.id }}'">
-                    <div class="i_cards">
-                        <img class="icon_logo" src="/static/images/article_icon.png"/>
-                        <h2 class="i_title">{{ record.name }}</h2>
-                        <p class="i_summary">{{ record.description }}</p>
-                        <p class="i_summary">Цена: {{ record.price }}</p>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-
-        </div>
+        <p>Цена: {{ record.price }}</p>
+        <hr>
+        <button class="interact_housing_button link_button" onclick="window.location.href='/view_housing?housing_id={{ record.housing_id }}'">Посмотреть жильё</button>
     </div>
 </div>
+
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/select2.min.js') }}"></script>
 </body>
 </html>

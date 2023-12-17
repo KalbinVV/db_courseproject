@@ -41,18 +41,33 @@
         <h2 class="title">{{ housing.name }}</h2>
         <p class="summary">
             <span>{{ housing.description }}</span>
+            <hr>
             <h4>Адрес: </h4>
+            <hr>
             <p>Страна: {{address.country.name}} </p>
             <p>Нас. пункт: {{address.settlement.name}} </p>
             <p>Улица: {{address.street.name}} </p>
             <p>Номер дома: {{address.house_number}} </p>
             <p>Номер квартиры: {{address.department_number if address.department_number else 'Не указано'}} </p>
+            <hr>
+            <h4>Удобства: </h4>
+            <hr>
+            {% for comfort in comforts %}
+
+            <p> {{ comfort.name}}: {{ comfort.value }} {{ comfort.unit_short }} ({{ comfort.unit }})</p>
+            <p> {{ comfort.description }} </p>
+
+            {% endfor %}
         </p>
+        <hr>
+        {% if is_owner %}
         <button class="interact_housing_button link_button" onclick="window.location.href='/remove_housing?housing_id={{ housing.id }}'">
             Удалить недвижимость
         </button>
         <button class="interact_housing_button link_button" onclick="window.location.href='/change_housing?housing_id={{ housing.id }}'">Изменить недвижимость</button>
-        <button class="interact_housing_button link_button">Создать объявление</button>
+        <button class="interact_housing_button link_button" onclick="window.location.href='/create_record?housing_id={{ housing.id }}'">Создать объявление</button>
+
+        {% endif %}
     </div>
 </div>
 

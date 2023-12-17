@@ -126,6 +126,9 @@ class Comforts(db.Model):
     description: Mapped[str] = mapped_column(String(100), nullable=False)
     unit_id: Mapped[int] = mapped_column(ForeignKey('units.id'), nullable=False)
 
+    min_value: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
+    max_value: Mapped[int] = mapped_column(Integer, nullable=False, default=1)
+
 
 class ComfortsAssociationTable(db.Model):
     __tablename__ = 'comforts_association_table'
