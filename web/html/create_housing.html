@@ -38,9 +38,8 @@
     <img class="pf type_icon" src=""/>
     <div class="contain">
         <div class="i_space"></div>
-        <h2 class="title">{{ username }}</h2>
         <p class="summary">
-            <tag>Добавить новое жильё</tag>
+            <span>* - Эти поля будете видеть лишь вы</span>
         </p>
         <form id="add_housing_form">
             <p>Выберете тип жилья: </p>
@@ -53,16 +52,16 @@
                 </option>
                 {% endfor %}
             </select>
-            <p>Введите имя: </p>
+            <p>* Введите имя: </p>
             <p>
             <div style="text-align: center;" id="name_input">
                 <input name="name" id="name" required/>
             </div>
             <hr>
-            <p>Введите краткое описание: </p>
+            <p>* Введите краткое описание: </p>
             <p>
             <div style="text-align: center;" id="description_textarea">
-                <textarea style="resize: none; width: 30rem; height: 20rem;" name="description" id="description" required></textarea>
+                <textarea style="resize: none; width: 30rem; height: 20rem;" name="description" id="description" required></textarea>*
             </div>
 
             <p>Выберете страну: </p>
@@ -113,11 +112,11 @@
 
                 <input type="range" min="{{ comfort.min }}"
                        max="{{ comfort.max }}"
-                       value="0"
+                       value="{{ comfort.min }}"
                        class="comfort_range"
                        data-id="{{ comfort.id }}"
                        id="comfort{{ comfort.id }}"/>
-                <span id="value-comfort{{comfort.id}}">0</span> {{ comfort.unit_short }} ({{ comfort.unit }})
+                <span id="value-comfort{{comfort.id}}">{{ comfort.min }}</span> {{ comfort.unit_short }} ({{ comfort.unit }})
 
             {% endfor %}
             </div>

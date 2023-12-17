@@ -80,7 +80,7 @@ def change_housing():
                                housing_type=models.db.get_or_404(models.HousingsTypes, housing.housing_type_id),
                                address=parse_address_by_id(housing.address_id),
                                comforts=get_housing_comforts(housing.id))
-    elif request.method == 'POST':
+    else:
         def _parse_comforts():
             comforts_list = []
 
@@ -114,7 +114,7 @@ def change_housing():
             models.db.session.add(comfort_association)
             models.db.session.commit()
 
-    return redirect('/my_housings')
+    return str(housing_id)
 
 
 @should_be_authed
@@ -142,12 +142,61 @@ def create_record():
         models.db.session.add(record)
         models.db.session.commit()
 
-        return 'successful'
+        return str(record.id)
 
 
 @should_be_authed
 def view_record():
     record_id = request.args.get('record_id')
 
+    record = models.db.get_or_404(models.Records, int(record_id))
+    housing = models.db.get_or_404(models.Housings, record.housing_id)
+
+    user = get_user()
+    is_owner = housing.owner_id == user.id
+
+    if not is_owner and record.current_status == 'Hidden':
+        return 404, 'Объявление не найдено либо скрыто'
+
     return render_template('view_record.html',
-                           record=models.db.get_or_404(models.Records, int(record_id)))
+                           record=record,
+                           is_owner=is_owner)
+
+
+@should_be_authed
+def activate_record():
+    record_id = request.args.get('record_id')
+
+    record = models.db.get_or_404(models.Records, record_id)
+    housing = models.db.get_or_404(models.Housings, record.housing_id)
+
+    user = get_user()
+
+    if user.id != housing.owner_id:
+        return 400, 'Вы должны быть владельцем данной недвижимости!'
+
+    record.current_status = 'Active'
+
+    models.db.session.commit()
+
+    return redirect(f'/view_record?record_id={record_id}')
+
+
+@should_be_authed
+def hide_record():
+    record_id = request.args.get('record_id')
+
+    record = models.db.get_or_404(models.Records, record_id)
+
+    housing = models.db.get_or_404(models.Housings, record.housing_id)
+
+    user = get_user()
+
+    if user.id != housing.owner_id:
+        return 400, 'Вы должны быть владельцем данной недвижимости!'
+
+    record.current_status = 'Hidden'
+
+    models.db.session.commit()
+
+    return redirect(f'/view_record?record_id={record_id}')

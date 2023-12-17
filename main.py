@@ -53,6 +53,8 @@ def main() -> None:
         '/change_housing': (profile.change_housing, ['GET', 'POST']),
         '/create_record': (profile.create_record, ['GET', 'POST']),
         '/view_record': (profile.view_record, ['GET']),
+        '/activate_record': (profile.activate_record, ['GET']),
+        '/hide_record': (profile.hide_record, ['GET']),
         # Search section
         '/search': (search.search_page, ['GET'])
     }

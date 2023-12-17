@@ -78,6 +78,8 @@ class Addresses(db.Model):
     department_number: Mapped[int] = mapped_column(String(5), nullable=True)
 
     street_id: Mapped[int] = mapped_column(ForeignKey('streets.id', ondelete="CASCADE"), nullable=False)
+    settlement_id: Mapped[int] = mapped_column(ForeignKey('settlements.id', ondelete='CASCADE'), nullable=False)
+    country_id: Mapped[int] = mapped_column(ForeignKey('countries.id', ondelete='CASCADE'), nullable=False)
 
 
 class HousingsTypes(db.Model):

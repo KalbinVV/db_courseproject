@@ -40,12 +40,26 @@
         <div class="i_space"></div>
         <hr>
         <h2 class="title">{{ record.title }}</h2>
+        {% if record.current_status == 'Hidden' %}
+        <span style='color="gray"'>
+            Объявление скрыто
+        </span>
+        {% endif %}
         <p class="summary">
             {{ record.description }}
         </p>
         <p>Цена: {{ record.price }}</p>
         <hr>
         <button class="interact_housing_button link_button" onclick="window.location.href='/view_housing?housing_id={{ record.housing_id }}'">Посмотреть жильё</button>
+
+        {% if is_owner and record.current_status == 'Hidden' %}
+        <button class="interact_housing_button link_button" onclick="window.location.href='/activate_record?record_id={{ record.id }}'">Активировать объявление</button>
+        {% endif %}
+
+        {% if is_owner and record.current_status != 'Hidden' %}
+        <button class="interact_housing_button link_button" onclick="window.location.href='/hide_record?record_id={{ record.id }}'">Деактивировать объявление</button>
+        {% endif %}
+
     </div>
 </div>
 

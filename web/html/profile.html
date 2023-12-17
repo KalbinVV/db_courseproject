@@ -45,12 +45,15 @@
         <div class="row">
             {% for record in records %}
             <div class="column">
-                <div class="i_contain" onclick="window.location.href='/view_record?record_id={{ record.id }}'">
+                <div class="i_contain" onclick="window.location.href='/view_record?record_id={{ record[0].id }}'">
                     <div class="i_cards">
-                        <img class="icon_logo" src="/static/images/article_icon.png"/>
-                        <h2 class="i_title">{{ record.name }}</h2>
-                        <p class="i_summary">{{ record.description }}</p>
-                        <p class="i_summary">Цена: {{ record.price }}</p>
+                        <img class="icon_logo" src="/static/images/{{ record[2].icon }}"/>
+                        <h2 class="i_title">{{ record[0].title }}</h2>
+                        {% if record[0].current_status == 'Hidden' %}
+                        <p class="i_summary" style="color: gray;">Объявление скрыто</p>
+                        {% endif %}
+                        <p class="i_summary">{{ record[0].description }}</p>
+                        <p class="i_summary">Цена: {{ record[0].price }}</p>
                     </div>
                 </div>
             </div>

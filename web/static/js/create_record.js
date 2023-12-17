@@ -12,7 +12,7 @@ $(document).ready(function(){
                 price: $('#price').val(),
             },
             success: function(response) {
-                window.location.href = '/profile'
+                window.location.href = '/view_record?record_id='+response
             },
             error: function(response) {
                 console.log(response)

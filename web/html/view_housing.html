@@ -37,9 +37,14 @@
     <img class="pf" src="/static/images/{{ housing_icon }}"/>
     <div class="contain">
         <div class="i_space"></div>
-        <h2 class="title">{{ housing.name }}</h2>
+        {% if is_owner %}
+        <h2 class="title">* {{ housing.name }}</h2>
+        <span>* - Эти поля видите лишь вы</span>
+        {% endif %}
         <p class="summary">
-            <span>{{ housing.description }}</span>
+            {% if is_owner %}
+            <span>* {{ housing.description }}</span>
+            {% endif %}
             <hr>
             <h4>Адрес: </h4>
             <hr>

@@ -3,6 +3,7 @@ from flask import request
 import data.utils
 import models
 from security import should_be_authed, get_user, should_be_owner_of_housing
+from utils.locations_utils import parse_address
 
 
 def get_settlements_by_country():
@@ -57,7 +58,12 @@ def add_housing():
     housing_type_id = request.form.get('housing_type_id')
 
     address = models.Addresses(house_number=str(house_number),
-                               street_id=street_id)
+                               street_id=int(street_id))
+
+    args = parse_address(address)
+
+    address.country_id = int(args['country'].id)
+    address.settlement_id = int(args['settlement'].id)
 
     comforts = _parse_comforts()
 
@@ -84,7 +90,7 @@ def add_housing():
         models.db.session.add(comfort_association)
         models.db.session.commit()
 
-    return {'successful': True}
+    return str(housing.id)
 
 
 def export_data():

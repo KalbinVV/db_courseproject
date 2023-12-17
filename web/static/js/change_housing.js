@@ -69,7 +69,7 @@ $(document).ready(function() {
                 comforts_amount: comforts.length
             },
             success: function(response) {
-                window.location.href = '/my_housings'
+                window.location.href = '/view_housing?housing_id=' + response
             },
             error: function(response) {
                 console.log(response)
