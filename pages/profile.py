@@ -11,11 +11,19 @@ from utils.records_utils import get_user_records
 
 
 @should_be_authed
-def my_profile():
-    user = get_user()
+def profile():
+    user_id = request.args.get('user_id')
+
+    if user_id is None:
+        user = get_user()
+        visitor = get_user()
+    else:
+        user = models.db.get_or_404(models.User, int(user_id))
+        visitor = get_user()
 
     return render_template('profile.html',
-                           username=user.username,
+                           user=user,
+                           visitor=visitor,
                            records=get_user_records(user.id))
 
 

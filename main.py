@@ -45,7 +45,7 @@ def main() -> None:
         '/api/export_data': (api.export_data, ['GET']),
         '/api/get_streets_by_like_name': (api.get_streets_by_like_name, ['GET']),
         # Profiles section
-        '/profile': (profile.my_profile, ['GET']),
+        '/profile': (profile.profile, ['GET']),
         '/my_housings': (profile.my_housings, ['GET']),
         '/create_housing': (profile.create_housing, ['GET', 'POST']),
         '/view_housing': (profile.view_housing, ['GET']),

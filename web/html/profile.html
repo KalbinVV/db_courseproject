@@ -36,7 +36,7 @@
     <img class="pf" src="/static/images/profile.jpg"/>
     <div class="contain">
         <div class="i_space"></div>
-        <h2 class="title">{{ username }}</h2>
+        <h2 class="title">{{ user.username }}</h2>
         <p class="summary">
             <tag>Шаблон профиля</tag>
         </p>
@@ -44,6 +44,7 @@
     <div class="contain_2">
         <div class="row">
             {% for record in records %}
+            {% if (record[1].owner_id == visitor.id) or (record[0].current_status == 'Active') %}
             <div class="column">
                 <div class="i_contain" onclick="window.location.href='/view_record?record_id={{ record[0].id }}'">
                     <div class="i_cards">
@@ -57,6 +58,7 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
             {% endfor %}
 
         </div>
