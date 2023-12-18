@@ -136,11 +136,13 @@ $(document).ready(function() {
                         <img class="icon_logo" src="/static/images/${record.icon}"/>
                         <h2 class="i_title">${record.title}</h2>
                         <p class="i_summary">${record.description}</p>
-                        <p class="i_summary">Цена: ${ record.price }</p>
+                        <p class="i_summary">Цена: ${ record.price } рублей</p>
                         <p class="i_summary">Улица: ${ record.street_name }</p>
                         <p class="i_summary">Номер дома: ${record.house_number} </p>
                         <p class="i_summary">Номер квартиры: ${record.department_number ? record.department_number : 'Нет'}
                         <p class="i_summary">Пользователь: ${record.username}</p>
+                        <p class="i_summary">Создано: ${record.created_data}</p>
+                        <p class="i_summary">Последнее обновление: ${record.updated_time}</p>
                     </div>
                     </div>`
                 })

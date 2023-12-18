@@ -67,7 +67,9 @@
                         <p class="i_summary" style="color: gray;">Объявление скрыто</p>
                         {% endif %}
                         <p class="i_summary">{{ record[0].description }}</p>
-                        <p class="i_summary">Цена: {{ record[0].price }}</p>
+                        <p class="i_summary">Цена: {{ record[0].price }} рублей</p>
+                        <p class="i_summary">Дата создания: {{ record[0].created_date }}</p>
+                        <p class="i_summary">Время последнего изменения: {{ record[0].updated_time }}</p>
                     </div>
                 </div>
             </div>

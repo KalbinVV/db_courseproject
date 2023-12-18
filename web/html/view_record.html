@@ -61,16 +61,23 @@
                 {{ record.description }}
                 {% endif %}
             </p>
+            <p>Цена: </p>
             {% if is_owner %}
             <input type="number" min="100" max="1000000" name="price" value="{{ record.price }}">
             {% else %}
-            <p>Цена: {{ record.price }}</p>
+            <p>{{ record.price }} рублей</p>
             {% endif %}
             <hr>
             <h4>Способы связи: </h4>
 
             <p>Номер телефона: {{user.phone_number if user.phone_number else 'Не указан'}}</p>
             <p>Электронная почта: {{user.email if user.email else 'Не указана'}}</p>
+
+            <hr>
+            <h4>Дата: </h4>
+                <p>Дата создания: {{ record.created_date }}</p>
+                <p>Время изменения: {{ record.updated_time }}</p>
+            <hr>
 
             <hr>
 

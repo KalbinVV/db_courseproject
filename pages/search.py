@@ -84,7 +84,9 @@ def get_search_result():
                                     models.Streets.name.label('street_name'),
                                     models.Addresses.house_number,
                                     models.Addresses.department_number,
-                                    models.User.username)\
+                                    models.User.username,
+                                    models.Records.created_date,
+                                    models.Records.updated_time)\
         .order_by(asc(models.Records.price), desc(models.Records.updated_time)).all()
 
     parsed_records = []
@@ -115,6 +117,8 @@ def get_search_result():
                                'street_name': record.street_name,
                                'house_number': record.house_number,
                                'department_number': record.department_number,
-                               'username': record.username})
+                               'username': record.username,
+                               'created_data': record.created_date,
+                               'updated_time': record.updated_time})
 
     return parsed_records

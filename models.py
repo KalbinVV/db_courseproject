@@ -171,8 +171,8 @@ class History(db.Model):
     renter_id: Mapped[int] = mapped_column(ForeignKey('users.id'), index=True)
     housing_id: Mapped[int] = mapped_column(ForeignKey('housings.id'), index=True)
 
-    rent_start: Mapped[datetime.datetime] = mapped_column(DateTime(timezone=True), nullable=False)
-    rent_end: Mapped[datetime.datetime] = mapped_column(DateTime(timezone=True), nullable=False)
+    rent_start: Mapped[datetime.datetime] = mapped_column(Date, nullable=False)
+    rent_end: Mapped[datetime.datetime] = mapped_column(Date, nullable=False)
 
     CheckConstraint("rent_end > rent_start", name="history_rent_time_check")
 
