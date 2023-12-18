@@ -81,13 +81,11 @@ h1, h2, h3, h4, h5, p {
 .icon_logo {
     width: 64px;
     height: 64px;
-    border-radius: 10px;
     float: left;
     z-index: 1;
     margin-top: -22px;
     margin-left: -25px;
     transition-duration: 0.4s;
-    border: 1px solid #ccc;
 }
 .i_cards {
     width: 100%;

@@ -58,31 +58,31 @@
         <div class="welcome-hero-search-box">
             <div class="welcome-hero-form">
                 <div class="single-welcome-hero-form">
+                    <form method="get" action="/search">
                     <h4>Что ищем?</h4>
-                    <form action="index.html">
-                        <select class="housings_types_select">
+                        <hr>
+                        <select class="housings_types_select" name="selected_housing_type">
                             {% for housing_type in housings_types %}
-                            <option value="{{ housing_type['id'] }}">{{ housing_type['name'] }}</option>
+                            <option value="{{ housing_type.variables.id }}">{{ housing_type['name'] }}</option>
                             {% endfor %}
                         </select>
-                    </form>
                 </div>
                 <div class="single-welcome-hero-form">
-                    <h4>Локация: </h4>
-                    <form action="index.html">
-                        <select class="settlements_select">
-                            {% for settlement in settlements %}
-                            <option value="{{ settlement['id'] }}">{{ settlement['name'] }}</option>
+                    <h4>Страна: </h4>
+                    <hr>
+                        <select class="settlements_select" name="selected_country">
+                            {% for country in countries %}
+                            <option value="{{ country['id'] }}">{{ country['name'] }}</option>
                             {% endfor %}
                         </select>
-                    </form>
                 </div>
             </div>
             <div class="welcome-hero-serch">
-                <button class="welcome-hero-btn">
+                <button class="welcome-hero-btn" type="submit">
                     Найти
                 </button>
             </div>
+            </form>
         </div>
     </div>
 
@@ -93,7 +93,7 @@
             <ul style="text-align: center;">
                 {% for housing_type in housings_types %}
                 <li>
-                    <div class="single-list-topics-content">
+                    <div class="single-list-topics-content" onclick="window.location.href='/search?selected_housing_type={{ housing_type.variables.id }}'">
                         <img class="icon_logo" style="width: 50px; height: 50px;" src="/static/images/{{ housing_type['variables']['icon'] }}"/>
                         <h2><a href="#">{{ housing_type['name'] }}</a></h2>
                         <p>{{ housing_type['variables']['count'] }}</p>

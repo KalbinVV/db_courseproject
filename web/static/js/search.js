@@ -135,6 +135,10 @@ $(document).ready(function() {
                         <h2 class="i_title">${record.title}</h2>
                         <p class="i_summary">${record.description}</p>
                         <p class="i_summary">Цена: ${ record.price }</p>
+                        <p class="i_summary">Улица: ${ record.street_name }</p>
+                        <p class="i_summary">Номер дома: ${record.house_number} </p>
+                        <p class="i_summary">Номер квартиры: ${record.department_number ? record.department_number : 'Нет'}
+                        <p class="i_summary">Пользователь: ${record.username}</p>
                     </div>
                     </div>`
                 })

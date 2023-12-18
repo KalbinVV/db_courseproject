@@ -6,7 +6,7 @@ from models import db, create_triggers
 from pages import auth, users, profile, api, search
 from security import is_user_authed
 from utils.housings_utils import get_housings_statistic
-from utils.locations_utils import get_settlements
+from utils.locations_utils import get_settlements, get_countries
 
 app = Flask(__name__,
             template_folder=os.path.abspath('./web/html'),
@@ -25,7 +25,7 @@ def index() -> str:
                       for key, item in get_housings_statistic().items()]
 
     return render_template('index.html', housings_types=housings_types,
-                           settlements=get_settlements(),
+                           countries=get_countries(),
                            is_authed=is_user_authed())
 
 

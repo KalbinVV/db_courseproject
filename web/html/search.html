@@ -47,7 +47,8 @@
                 {% for housing_type in housings_types %}
                 <option value="{{ housing_type.id }}"
                         data-department_number_required="{{ housing_type.department_number_required }}"
-                        data-icon="{{ housing_type.icon }}">
+                        data-icon="{{ housing_type.icon }}"
+                {% if housing_type.id == selected_housing_type %} selected {% endif %}>
                     {{ housing_type.name }}
                 </option>
                 {% endfor %}
@@ -58,7 +59,10 @@
             <p>
                 <select class="countries_select">
                     {% for country in countries %}
-                    <option value="{{ country['id'] }}">{{ country['name'] }}</option>
+                    <option value="{{ country['id'] }}"
+                    {% if country.id == selected_country %} selected {% endif %}
+
+                    >{{ country['name'] }}</option>
                     {% endfor %}
                 </select>
             </p>
@@ -99,11 +103,11 @@
 
                 <input type="range" min="{{ comfort.min }}"
                        max="{{ comfort.max }}"
-                       value="0"
+                       value="{{ comfort.min }}"
                        class="comfort_range"
                        data-id="{{ comfort.id }}"
                        id="comfort{{ comfort.id }}"/>
-                <span id="value-comfort{{comfort.id}}">0</span> {{ comfort.unit_short }} ({{ comfort.unit }})
+                <span id="value-comfort{{comfort.id}}">{{ comfort.min }}</span> {{ comfort.unit_short }} ({{ comfort.unit }})
 
             {% endfor %}
             </div>

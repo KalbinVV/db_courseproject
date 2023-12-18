@@ -219,17 +219,13 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
 .welcome-hero-form {
     display: flex;
     background: #fff;
-    height: 70px;
+    height: 20vh;
     border-radius: 3px;
     width: 85%;
 }
 .single-welcome-hero-form {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
     width: 50%;
-    padding: 0 30px;
+    padding: 20px 30px;
 }
 
 .single-welcome-hero-form select {
@@ -238,7 +234,6 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
 
 .single-welcome-hero-form:first-child{border-right: 1px solid #edeff1;}
 .single-welcome-hero-form input {
-    margin-left: 10px;
     height: 70px;
     width: 300px;
     border: 0;
@@ -251,12 +246,6 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
     font-weight: 500;
 }
 
-.welcome-hero-form-icon {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    color: #252d32;
-}
 .welcome-hero-btn {
     display:  flex;
     justify-content:  center;
@@ -264,7 +253,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
     font-size:  14px;
     color:  #fff;
     width:  170px;
-    height:  70px;
+    height: 20vh;
     background:  #ff545a;
     text-transform:  capitalize;
     margin-left:  30px;
