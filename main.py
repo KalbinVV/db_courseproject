@@ -60,9 +60,10 @@ def main() -> None:
         '/hide_record': (profile.hide_record, ['GET']),
         '/update_profile': (profile.update_profile, ['POST']),
         '/update_record': (profile.update_record, ['POST']),
+        '/rent_housing': (profile.rent_housing, ['POST', 'GET']),
         # Search section
         '/search': (search.search_page, ['GET']),
-        '/get_search_results': (search.get_search_result, ['GET'])
+        '/get_search_results': (search.get_search_result, ['GET']),
     }
 
     for routing, args in pages_routing.items():

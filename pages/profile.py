@@ -8,6 +8,7 @@ from utils.comforts_utils import get_comforts, get_housing_comforts
 from utils.housings_utils import get_housings_types, get_housings
 from utils.locations_utils import get_countries, parse_address_by_id
 from utils.records_utils import get_user_records
+from utils.users_utils import get_users
 
 
 @should_be_authed
@@ -251,3 +252,12 @@ def update_record():
 
     return redirect(f'/view_record?record_id={record.id}')
 
+
+@should_be_authed
+def rent_housing():
+    if request.method == 'GET':
+        housing = models.db.get_or_404(models.Housings, request.args.get('housing_id'))
+
+        return render_template('rent_housing.html',
+                               users=get_users(),
+                               housing=housing)
