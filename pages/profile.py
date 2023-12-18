@@ -144,7 +144,7 @@ def create_record():
                                 housing_id=housing_id,
                                 description=description,
                                 price=price,
-                                created_time=datetime.datetime.utcnow(),
+                                created_date=datetime.datetime.today(),
                                 updated_time=datetime.datetime.utcnow())
 
         models.db.session.add(record)
@@ -245,6 +245,7 @@ def update_record():
     record.title = title
     record.description = description
     record.price = price
+    record.updated_time = datetime.datetime.utcnow()
 
     models.db.session.commit()
 

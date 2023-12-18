@@ -1,3 +1,4 @@
+import datetime
 import hashlib
 import random
 
@@ -227,11 +228,14 @@ def generate_records():
             description = f'Описание для объявления'
             price = random.randint(100, 100000)
 
+            created_date = datetime.datetime.today() + datetime.timedelta(days=random.randint(-10, 10))
+
             record = models.Records(housing_id=housing.id,
                                     current_status='Active',
                                     title=title,
                                     description=description,
-                                    price=price)
+                                    price=price,
+                                    created_date=created_date)
 
             models.db.session.add(record)
             models.db.session.commit()

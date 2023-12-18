@@ -1,7 +1,8 @@
+import datetime
 import json
 
 from flask import render_template, request
-from sqlalchemy import asc
+from sqlalchemy import asc, desc
 
 import models
 from main import app
@@ -44,7 +45,19 @@ def get_search_result():
     street_id = request.args.get('street_id')
     min_price = request.args.get('min_price')
     max_price = request.args.get('max_price')
+    date_start = request.args.get('date_start')
+    date_end = request.args.get('date_end')
     comforts = _parse_comforts()
+
+    if date_start is None or date_start == '':
+        date_start = datetime.datetime.today()
+    else:
+        date_start = datetime.datetime.strptime(date_start, '%Y-%m-%d')
+
+    if date_end is None or date_end == '':
+        date_end = datetime.datetime.today()
+    else:
+        date_end = datetime.datetime.strptime(date_end, '%Y-%m-%d')
 
     records = models.Records.query \
         .join(models.Housings) \
@@ -52,9 +65,11 @@ def get_search_result():
         .join(models.Addresses)\
         .join(models.HousingsTypes)\
         .join(models.Streets)\
+        .filter(models.Records.current_status == 'Active')\
         .filter(models.Addresses.settlement_id == int(settlement_id)) \
         .filter(models.Records.price >= int(min_price), models.Records.price <= int(max_price))\
-        .filter(models.Housings.housing_type_id.in_(housings_types))
+        .filter(models.Housings.housing_type_id.in_(housings_types))\
+        .filter(models.Records.created_date >= date_start, models.Records.created_date <= date_end)
 
     if street_id is not None and street_id != '':
         records = records.filter(models.Addresses.street_id == int(street_id))
@@ -69,7 +84,8 @@ def get_search_result():
                                     models.Streets.name.label('street_name'),
                                     models.Addresses.house_number,
                                     models.Addresses.department_number,
-                                    models.User.username).all()
+                                    models.User.username)\
+        .order_by(asc(models.Records.price), desc(models.Records.updated_time)).all()
 
     parsed_records = []
 

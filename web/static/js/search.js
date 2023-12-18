@@ -118,7 +118,9 @@ $(document).ready(function() {
                 min_price: $('#min_price').val(),
                 max_price: $('#max_price').val(),
                 comforts: comforts,
-                comforts_amount: comforts.length
+                comforts_amount: comforts.length,
+                date_start: $('#date_start').val(),
+                date_end: $('#date_end').val()
             },
             success: function(records) {
                 console.log(records)

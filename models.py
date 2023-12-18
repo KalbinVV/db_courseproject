@@ -1,7 +1,7 @@
 import datetime
 
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import Integer, String, ForeignKey, DateTime, Boolean, CheckConstraint
+from sqlalchemy import Integer, String, ForeignKey, DateTime, Boolean, CheckConstraint, Date
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
 from sqlalchemy.sql import text
@@ -106,9 +106,6 @@ class Housings(db.Model):
     renter_id: Mapped[int] = mapped_column(ForeignKey('users.id'), index=True, nullable=True)
     address_id: Mapped[int] = mapped_column(ForeignKey('addresses.id', ondelete="CASCADE"), nullable=False)
 
-    created_at: Mapped[datetime.datetime] = mapped_column(DateTime(timezone=True),
-                                                          nullable=False,
-                                                          default=datetime.datetime.utcnow())
     updated_at: Mapped[datetime.datetime] = mapped_column(DateTime(timezone=True),
                                                           nullable=False,
                                                           default=datetime.datetime.utcnow())
@@ -157,8 +154,8 @@ class Records(db.Model):
     current_status: Mapped[str] = mapped_column(String(30), default='Hidden', nullable=False)
     visitors_amount: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
 
-    created_time: Mapped[datetime.datetime] = mapped_column(DateTime(timezone=True), nullable=False,
-                                                            default=datetime.datetime.utcnow())
+    created_date: Mapped[datetime.datetime] = mapped_column(Date, nullable=False,
+                                                            default=datetime.datetime.today())
     updated_time: Mapped[datetime.datetime] = mapped_column(DateTime(timezone=True), nullable=False,
                                                             default=datetime.datetime.utcnow())
 
