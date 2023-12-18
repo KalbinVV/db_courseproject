@@ -228,7 +228,7 @@ def generate_records():
             description = f'Описание для объявления'
             price = random.randint(100, 100000)
 
-            created_date = datetime.datetime.today() + datetime.timedelta(days=random.randint(-10, 10))
+            created_date = datetime.datetime.today() - datetime.timedelta(days=random.randint(1, 10))
 
             record = models.Records(housing_id=housing.id,
                                     current_status='Active',
