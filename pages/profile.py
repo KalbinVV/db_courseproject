@@ -7,6 +7,7 @@ from security import should_be_authed, get_user, should_be_owner_of_housing
 from utils.comforts_utils import get_comforts, get_housing_comforts
 from utils.housings_utils import get_housings_types, get_housings
 from utils.locations_utils import get_countries, parse_address_by_id
+from utils.logs_utils import get_landlord_logs, get_renter_logs
 from utils.records_utils import get_user_records
 from utils.users_utils import get_users
 
@@ -261,3 +262,50 @@ def rent_housing():
         return render_template('rent_housing.html',
                                users=get_users(),
                                housing=housing)
+    else:
+        housing_id = request.form.get('housing_id')
+        renter_id = request.form.get('renter_id')
+        days_value = request.form.get('days_value')
+        price = request.form.get('price')
+
+        housing = models.db.get_or_404(models.Housings, housing_id)
+
+        housing.renter_id = int(renter_id)
+
+        record = models.Records.query.filter_by(housing_id=housing.id).first()
+
+        record.current_status = 'Hidden'
+
+        user = get_user()
+
+        log = models.History(owner_id=user.id,
+                             renter_id=int(renter_id),
+                             housing_id=int(housing.id),
+                             price=int(price),
+                             rent_start=datetime.datetime.today(),
+                             rent_end=datetime.datetime.today() + datetime.timedelta(days=int(days_value)))
+
+        models.db.session.add(log)
+
+        models.db.session.commit()
+
+        return redirect('/my_housings')
+
+
+@should_be_authed
+def landlord_history():
+    user = get_user()
+
+    return render_template('landlord_history.html',
+                           user=user,
+                           logs=get_landlord_logs(user.id))
+
+
+@should_be_authed
+def renter_history():
+    user = get_user()
+
+    return render_template('renter_history.html',
+                           user=user,
+                           logs=get_renter_logs(user.id))
+

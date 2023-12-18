@@ -61,6 +61,8 @@ def main() -> None:
         '/update_profile': (profile.update_profile, ['POST']),
         '/update_record': (profile.update_record, ['POST']),
         '/rent_housing': (profile.rent_housing, ['POST', 'GET']),
+        '/landlord_history': (profile.landlord_history, ['GET']),
+        '/renter_history': (profile.renter_history, ['GET']),
         # Search section
         '/search': (search.search_page, ['GET']),
         '/get_search_results': (search.get_search_result, ['GET']),

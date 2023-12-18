@@ -39,10 +39,11 @@
         <div class="i_space"></div>
 
         <h2 class="title">Сдать жильё в аренду</h2>
+        <form method="post" action="/rent_housing">
         <input hidden="hidden" name="housing_id" value="{{ housing.id }}">
         <p class="summary">
             <p>Выберете пользователя: </p>
-            <p><select class="users_select">
+            <p><select class="users_select" name="renter_id">
                 {% for user in users %}
 
                     <option value="{{ user.id }}">{{ user.username }}</option>
@@ -50,12 +51,17 @@
                 {% endfor %}
             </select></p>
             <p>На сколько дней вы хотите отдать в аренду жильё?</p>
-            <p><input type="number" min="1" max="120"></p>
+            <p><input type="number" min="1" max="120" name="days_value" value="1"></p>
+
+            <p>Стоимость аренды?</p>
+            <p><input type="number" min="100" max="100000" name="price" value="100"></p>
         </p>
         <hr>
 
-        <button class="interact_housing_button link_button" type="button">Сдать в аренду</button>
+        <button class="interact_housing_button link_button" type="submit">Сдать в аренду</button>
         <button class="interact_housing_button link_button" type="button" onclick="document.location.href='/view_housing?housing_id={{ housing.id }}'">Вернуться обратно</button>
+
+        </form>
 
     </div>
 </div>

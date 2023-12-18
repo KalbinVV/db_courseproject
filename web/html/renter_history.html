@@ -22,8 +22,9 @@
                 <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
                     <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
                         <li class="scroll"><a href="/">Домашняя страница</a></li>
+                        <li class="scroll"><a href="/profile">Объявления</a></li>
+                        <li class="scroll"><a href="/landlord_history">История сдачи в аренду</a></li>
                         <li class="scroll only_for_authed"><a href="/my_housings">Жильё</a></li>
-                        <li class="scroll only_for_authed"><a href="/landlord_history">История сдачи в аренду</a></li>
                         <li class="scroll only_for_authed"><a href="/logout">Выйти</a></li>
                     </ul>
                 </div>
@@ -38,46 +39,36 @@
     <div class="contain">
         <div class="i_space"></div>
         <h2 class="title">{{ user.username }}</h2>
-        <h3>{{ user.first_name if user.first_name else '' }} {{ user.second_name if user.second_name else '' }}</h3>
+        <h3>История аренды</h3>
         <p class="summary">
-            <form method="post" action="/update_profile">
-            <h4>Способы связи: </h4>
-            <hr>
-            <p>Номер телефона:</p>
-            <p><input type="text" value="{{ user.phone_number if user.phone_number else '' }}" name="phone_number"></p>
-            <p>Электронная почта:</p>
-            <p><input type="text" value="{{ user.email if user.email else '' }}" name="email"></p>
-            {% if user.id == visitor.id %}
 
-            <button type="submit" class="link_button">Обновить данные профиля</button>
-            {% endif %}
-            <hr>
-            </form>
         </p>
     </div>
     <div class="contain_2">
+        {% for log in logs %}
         <div class="row">
-            {% for record in records %}
-            {% if (user.id == visitor.id) or (record[0].current_status == 'Active') %}
             <div class="column">
-                <div class="i_contain" onclick="window.location.href='/view_record?record_id={{ record[0].id }}'">
+                <div class="i_contain" onclick="window.location.href='/view_housing?housing_id={{ log.housing_id }}'">
                     <div class="i_cards">
-                        <img class="icon_logo" src="/static/images/{{ record[2].icon }}"/>
-                        <h2 class="i_title">{{ record[0].title }}</h2>
-                        {% if record[0].current_status == 'Hidden' %}
-                        <p class="i_summary" style="color: gray;">Объявление скрыто</p>
+                        <h2 class="i_title">{{ log.housing_name }}</h2>
+                        {% if log.rent_end > log.rent_start %}
+                        <p class="i_summary" style="color: green;">
+                            Аренда действует
+                        </p>
+                        {% else %}
+                        <p class="i_summary" style="color: gray;">
+                            Аренда завершена
+                        </p>
                         {% endif %}
-                        <p class="i_summary">{{ record[0].description }}</p>
-                        <p class="i_summary">Цена: {{ record[0].price }} рублей</p>
-                        <p class="i_summary">Дата создания: {{ record[0].created_date }}</p>
-                        <p class="i_summary">Время последнего изменения: {{ record[0].updated_time }}</p>
+                        <p class="i_summary">Арендодатель: {{ log.owner_name }}</p>
+                        <p class="i_summary">Дата начала аренды: {{ log.rent_start }}</p>
+                        <p class="i_summary">Дата конца аренды: {{ log.rent_end }}</p>
                     </div>
                 </div>
             </div>
-            {% endif %}
-            {% endfor %}
 
         </div>
+        {% endfor %}
     </div>
 </div>
 </body>
