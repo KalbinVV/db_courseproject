@@ -225,7 +225,7 @@ def generate_records():
         for housing in housings:
             title = f'Сдам {housing.name} от {user.username}'
             description = f'Описание для объявления'
-            price = random.randint(100, 1000000)
+            price = random.randint(100, 100000)
 
             record = models.Records(housing_id=housing.id,
                                     current_status='Active',

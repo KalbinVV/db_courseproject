@@ -26,7 +26,7 @@ def get_search_result():
 
         return comforts_list
 
-    housings_types = tuple(map(int, json.loads(request.args.get('housings_types'))))
+    housings_types = list(map(int, json.loads(request.args.get('housings_types'))))
     settlement_id = request.args.get('settlement_id')
     street_id = request.args.get('street_id')
     min_price = request.args.get('min_price')
@@ -34,28 +34,42 @@ def get_search_result():
     comforts = _parse_comforts()
 
     records = models.Records.query \
+        .join(models.Housings)\
+        .join(models.Addresses)\
+        .join(models.HousingsTypes)\
         .filter(models.Addresses.settlement_id == int(settlement_id)) \
-        .filter(models.Records.price >= int(min_price), models.Records.price <= int(max_price))
+        .filter(models.Records.price >= int(min_price), models.Records.price <= int(max_price))\
+        .filter(models.Housings.housing_type_id.in_(housings_types))
 
     if street_id is not None and street_id != '':
         records = records.filter(models.Addresses.street_id == int(street_id))
 
-    records = records.with_entities(models.Records).all()
+    records = records.with_entities(models.Records.id,
+                                    models.Records.title,
+                                    models.Records.description,
+                                    models.Records.price,
+                                    models.HousingsTypes.icon,
+                                    models.HousingsTypes.name.label('housing_type_name'),
+                                    models.Housings.id.label('housing_id')).all()
 
     parsed_records = []
 
     for record in records:
-        housing = models.Housings.query.filter_by(id=record.housing_id).first()
-        housing_type = models.HousingsTypes.query.filter_by(id=housing.housing_type_id).first()
+        housings_comforts = models.Comforts.query\
+            .join(models.ComfortsAssociationTable)\
+            .filter(models.ComfortsAssociationTable.housing_id == record.housing_id)\
+            .order_by(models.Comforts.id)\
+            .with_entities(models.ComfortsAssociationTable.value.label('comfort_value')).all()
 
-        if housing_type.id not in housings_types:
-            continue
+        for i, housing_comfort in enumerate(housings_comforts):
+            if comforts[i]['value'] < housing_comfort.comfort_value:
+                continue
 
         parsed_records.append({'id': record.id,
                                'title': record.title,
                                'description': record.description,
                                'price': record.price,
-                               'icon': housing_type.icon,
-                               'type': housing_type.name})
+                               'icon': record.icon,
+                               'type': record.housing_type_name})
 
     return parsed_records

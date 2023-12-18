@@ -13,6 +13,8 @@ app = Flask(__name__,
             static_folder=os.path.abspath('./web/static'))
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql+psycopg://user:pass@db/db"
+app.config['SQLALCHEMY_ECHO'] = True
+
 db.init_app(app)
 
 
