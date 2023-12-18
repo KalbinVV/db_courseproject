@@ -48,7 +48,8 @@ def get_housings() -> list:
                                 'id': housing.id,
                                 'description': housing.description,
                                 'type_str': housing_type.name,
-                                'icon': housing_type.icon
+                                'icon': housing_type.icon,
+                                'updated_time': housing.updated_at
                                 })
 
     return parsed_housings
