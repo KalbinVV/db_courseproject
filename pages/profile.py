@@ -297,7 +297,8 @@ def landlord_history():
 
     return render_template('landlord_history.html',
                            user=user,
-                           logs=get_landlord_logs(user.id))
+                           logs=get_landlord_logs(user.id),
+                           today=datetime.datetime.today().date())
 
 
 @should_be_authed
@@ -306,7 +307,8 @@ def renter_history():
 
     return render_template('renter_history.html',
                            user=user,
-                           logs=get_renter_logs(user.id))
+                           logs=get_renter_logs(user.id),
+                           today=datetime.datetime.today().date())
 
 
 @should_be_authed
@@ -336,5 +338,6 @@ def landlord_analytics():
                                sum=logs_by_dates['sum'],
                                user=user,
                                date_start=request.form.get('date_start'),
-                               date_end=request.form.get('date_end'))
+                               date_end=request.form.get('date_end'),
+                               today=datetime.datetime.today().date())
 

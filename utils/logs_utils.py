@@ -1,14 +1,15 @@
 import datetime
 import json
 
-from sqlalchemy import func
+from sqlalchemy import func, desc
 
 import models
 
 
 def get_landlord_logs(user_id: int):
     logs: list[models.History] = models.History.query\
-        .filter_by(owner_id=user_id)\
+        .filter_by(owner_id=user_id) \
+        .order_by(desc(models.History.id)) \
         .with_entities(models.History.price,
                        models.History.renter_id,
                        models.History.housing_id,
@@ -38,7 +39,8 @@ def get_landlord_logs(user_id: int):
 
 def get_renter_logs(user_id: int):
     logs: list[models.History] = models.History.query\
-        .filter_by(renter_id=user_id)\
+        .filter_by(renter_id=user_id) \
+        .order_by(desc(models.History.id)) \
         .with_entities(models.History.price,
                        models.History.owner_id,
                        models.History.housing_id,
@@ -70,6 +72,7 @@ def get_landlord_logs_by_dates(user_id: int, date_start: datetime.datetime, date
     logs: list[models.History] = models.History.query\
         .filter_by(owner_id=user_id)\
         .filter(models.History.rent_start >= date_start, models.History.rent_start <= date_end)\
+        .order_by(desc(models.History.id))\
         .with_entities(models.History.price,
                        models.History.renter_id,
                        models.History.housing_id,

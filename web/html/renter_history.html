@@ -22,7 +22,7 @@
                 <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
                     <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
                         <li class="scroll"><a href="/">Домашняя страница</a></li>
-                        <li class="scroll"><a href="/profile">Объявления</a></li>
+                        <li class="scroll"><a href="/profile">Личный кабинет</a></li>
                         <li class="scroll"><a href="/landlord_history">История сдачи в аренду</a></li>
                         <li class="scroll only_for_authed"><a href="/my_housings">Жильё</a></li>
                         <li class="scroll only_for_authed"><a href="/logout">Выйти</a></li>
@@ -46,12 +46,11 @@
     </div>
     <div class="contain_2">
         {% for log in logs %}
-        <div class="row">
             <div class="column">
                 <div class="i_contain" onclick="window.location.href='/view_housing?housing_id={{ log.housing_id }}'">
                     <div class="i_cards">
                         <h2 class="i_title">{{ log.housing_name }}</h2>
-                        {% if log.rent_end > log.rent_start %}
+                        {% if log.rent_end > today %}
                         <p class="i_summary" style="color: green;">
                             Аренда действует
                         </p>
@@ -66,7 +65,6 @@
                         <p class="i_summary">Дата конца аренды: {{ log.rent_end }}</p>
                     </div>
                 </div>
-            </div>
 
         </div>
         {% endfor %}

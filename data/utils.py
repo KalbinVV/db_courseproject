@@ -261,7 +261,7 @@ def generate_logs():
                         break
 
                 date_start = datetime.datetime.today() - datetime.timedelta(days=random.randint(0, 30))
-                date_end = date_start + datetime.timedelta(days=random.randint(0, 30))
+                date_end = date_start + datetime.timedelta(days=random.randint(1, 30))
 
                 price = random.randint(100, 100000)
 
