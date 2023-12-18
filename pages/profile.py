@@ -7,7 +7,7 @@ from security import should_be_authed, get_user, should_be_owner_of_housing
 from utils.comforts_utils import get_comforts, get_housing_comforts
 from utils.housings_utils import get_housings_types, get_housings
 from utils.locations_utils import get_countries, parse_address_by_id
-from utils.logs_utils import get_landlord_logs, get_renter_logs
+from utils.logs_utils import get_landlord_logs, get_renter_logs, get_landlord_logs_by_dates
 from utils.records_utils import get_user_records
 from utils.users_utils import get_users
 
@@ -270,11 +270,10 @@ def rent_housing():
 
         housing = models.db.get_or_404(models.Housings, housing_id)
 
-        housing.renter_id = int(renter_id)
-
         record = models.Records.query.filter_by(housing_id=housing.id).first()
 
-        record.current_status = 'Hidden'
+        if record is not None:
+            record.current_status = 'Hidden'
 
         user = get_user()
 
@@ -308,4 +307,34 @@ def renter_history():
     return render_template('renter_history.html',
                            user=user,
                            logs=get_renter_logs(user.id))
+
+
+@should_be_authed
+def landlord_analytics():
+    if request.method == 'GET':
+        return render_template('landlord_analytics_select.html')
+    else:
+        date_start = request.form.get('date_start')
+        date_end = request.form.get('date_end')
+
+        if date_start is None or date_start == '':
+            date_start = datetime.datetime.today()
+        else:
+            date_start = datetime.datetime.strptime(date_start, '%Y-%m-%d')
+
+        if date_end is None or date_end == '':
+            date_end = datetime.datetime.today()
+        else:
+            date_end = datetime.datetime.strptime(date_end, '%Y-%m-%d')
+
+        user = get_user()
+
+        logs_by_dates = get_landlord_logs_by_dates(user.id, date_start, date_end)
+
+        return render_template('landlord_analytic_report.html',
+                               logs=logs_by_dates['items'],
+                               sum=logs_by_dates['sum'],
+                               user=user,
+                               date_start=request.form.get('date_start'),
+                               date_end=request.form.get('date_end'))
 

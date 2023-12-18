@@ -1,11 +1,12 @@
 from flask import request
+from sqlalchemy import func
 
 import data.utils
 import models
-from security import should_be_authed, get_user, should_be_owner_of_housing
-from utils.locations_utils import parse_address, is_location_exists
+from security import should_be_authed, get_user
+from utils.locations_utils import is_location_exists
 
-import sqlalchemy.exc
+import datetime
 
 
 def get_settlements_by_country():
@@ -116,3 +117,37 @@ def get_streets_by_like_name():
                        models.Streets.settlement_id == int(settlement_id)).all()]
 
     return streets
+
+
+@should_be_authed
+def get_housings_rent_statistics():
+    user = get_user()
+
+    date_start = request.args.get('date_start')
+    date_end = request.args.get('date_end')
+
+    if date_start is None or date_start == '':
+        date_start = datetime.datetime.today()
+    else:
+        date_start = datetime.datetime.strptime(date_start, '%Y-%m-%d')
+
+    if date_end is None or date_end == '':
+        date_end = datetime.datetime.today()
+    else:
+        date_end = datetime.datetime.strptime(date_end, '%Y-%m-%d')
+
+    housings_statistics = models.db.session.query(func.sum(models.History.price).label('sum'),
+                                                  func.avg(models.History.price).label('avg'),
+                                                  models.Housings.name) \
+        .filter_by(owner_id=user.id)\
+        .filter(models.History.rent_start >= date_start, models.History.rent_start <= date_end)\
+        .join(models.Housings).group_by(models.Housings.name).all()
+
+    statistics = [{'name': statistic.name, 'sum': statistic.sum, 'avg': statistic.avg}
+                  for statistic in housings_statistics]
+
+    parsed_statistics = {'names': [statistic['name'] for statistic in statistics],
+                         'sum_values': list(map(int, [statistic['sum'] for statistic in statistics])),
+                         'avg_values': list(map(int, [statistic['avg'] for statistic in statistics]))}
+
+    return {'source': statistics, 'parsed': parsed_statistics}

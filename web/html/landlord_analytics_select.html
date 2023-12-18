@@ -1,0 +1,61 @@
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/select2.min.css') }}">
+</head>
+<body>
+<section class="top-area">
+    <div class="header-area">
+        <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy" data-minus-value-desktop="70"
+             data-minus-value-mobile="55" data-speed="1000">
+
+            <div class="container">
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="/">Dolphin<span>Rieltor</span></a>
+
+                </div>
+                <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
+                    <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                        <li class="scroll"><a href="/">Домашняя страница</a></li>
+                        <li class="scroll only_for_authed"><a href="/profile">Личный кабинет</a></li>
+                        <li class="scroll only_for_authed"><a href="/logout">Выйти</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+</section>
+<br>
+<div class="main" align="center">
+    <img class="pf" src="/static/images/ruble_icon.png"/>
+    <div class="contain">
+        <div class="i_space"></div>
+
+        <h2 class="title">Составить отчет о сданном в аренду жилье</h2>
+        <form method="post" action="/landlord_analytics">
+        <p class="summary">
+            <p>Выберете даты: </p>
+
+            <p>От: <input type="date" id="date_start" name="date_start" min="2010-01-01" max="2050-12-31" /></p>
+            <p>До: <input type="date" id="date_end" name="date_end" min="2010-01-01" max="2050-12-31" /></p>
+        </p>
+        <hr>
+
+        <button class="interact_housing_button link_button" type="submit">Составить отчет</button>
+
+        </form>
+
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/select2.min.js') }}"></script>
+</body>
+</html>

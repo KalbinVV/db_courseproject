@@ -206,25 +206,6 @@ def create_triggers():
     FOR EACH ROW
     EXECUTE FUNCTION check_address_is_unique();''')
 
-    rented_delete_housing_check_function = text('''\
-        CREATE OR REPLACE FUNCTION check_housings_is_not_rented()
-        RETURNS trigger AS
-        $$
-        BEGIN
-            IF OLD.renter_id != NULL THEN
-                RAISE EXCEPTION 'Невозможно удалить жильё, которое сейчас арендуется!';
-            END IF;
-            
-            RETURN OLD;
-        END;
-        $$ LANGUAGE plpgsql;
-    ''')
-
-    rented_housing_trigger = text('''\
-    CREATE OR REPLACE TRIGGER on_housing_delete BEFORE DELETE ON housings
-    FOR EACH ROW
-    EXECUTE FUNCTION check_housings_is_not_rented();''')
-
     update_address_info_after_insert = text('''\
             CREATE OR REPLACE FUNCTION update_address_info_after_insert()
             RETURNS trigger AS
@@ -258,9 +239,6 @@ def create_triggers():
 
     db.session.execute(unique_address_trigger_function)
     db.session.execute(address_trigger)
-
-    db.session.execute(rented_delete_housing_check_function)
-    db.session.execute(rented_housing_trigger)
 
     db.session.execute(update_address_info_after_insert)
     db.session.execute(update_address_info_after_insert_trigger)

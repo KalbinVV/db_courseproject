@@ -47,6 +47,7 @@ def main() -> None:
         '/api/add_housing': (api.add_housing, ['POST']),
         '/api/export_data': (api.export_data, ['GET']),
         '/api/get_streets_by_like_name': (api.get_streets_by_like_name, ['GET']),
+        '/api/get_housings_rent_statistics': (api.get_housings_rent_statistics, ['GET']),
         # Profiles section
         '/profile': (profile.profile, ['GET']),
         '/my_housings': (profile.my_housings, ['GET']),
@@ -63,6 +64,7 @@ def main() -> None:
         '/rent_housing': (profile.rent_housing, ['POST', 'GET']),
         '/landlord_history': (profile.landlord_history, ['GET']),
         '/renter_history': (profile.renter_history, ['GET']),
+        '/landlord_analytics': (profile.landlord_analytics, ['GET', 'POST']),
         # Search section
         '/search': (search.search_page, ['GET']),
         '/get_search_results': (search.get_search_result, ['GET']),

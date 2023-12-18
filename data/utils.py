@@ -7,6 +7,7 @@ from utils.locations_utils import is_location_exists
 
 USERS_AMOUNTS = 10
 HOUSINGS_PER_USER = 20
+MAX_LOGS_PER_HOUSING = 10
 
 
 def export_data():
@@ -27,6 +28,8 @@ def export_data():
     generate_housings()
 
     generate_records()
+
+    generate_logs()
 
 
 def export_settlements_types():
@@ -228,7 +231,7 @@ def generate_records():
             description = f'Описание для объявления'
             price = random.randint(100, 100000)
 
-            created_date = datetime.datetime.today() - datetime.timedelta(days=random.randint(1, 10))
+            created_date = datetime.datetime.today() - datetime.timedelta(days=random.randint(0, 30))
 
             record = models.Records(housing_id=housing.id,
                                     current_status='Active',
@@ -239,3 +242,35 @@ def generate_records():
 
             models.db.session.add(record)
             models.db.session.commit()
+
+
+def generate_logs():
+    users: list[models.User] = models.User.query.all()
+
+    for user in users:
+        housings: list[models.Housings] = models.Housings.query.filter_by(owner_id=user.id).all()
+
+        for housing in housings:
+            amount = random.randint(1, MAX_LOGS_PER_HOUSING)
+
+            for i in range(amount):
+                while True:
+                    random_user_id = users[random.randint(0, len(users) - 1)].id
+
+                    if random_user_id != user.id:
+                        break
+
+                date_start = datetime.datetime.today() - datetime.timedelta(days=random.randint(0, 30))
+                date_end = date_start + datetime.timedelta(days=random.randint(0, 30))
+
+                price = random.randint(100, 100000)
+
+                log = models.History(owner_id=user.id,
+                                     renter_id=random_user_id,
+                                     housing_id=housing.id,
+                                     price=price,
+                                     rent_start=date_start,
+                                     rent_end=date_end)
+
+                models.db.session.add(log)
+                models.db.session.commit()

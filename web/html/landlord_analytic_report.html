@@ -24,7 +24,6 @@
                         <li class="scroll"><a href="/">Домашняя страница</a></li>
                         <li class="scroll"><a href="/profile">Объявления</a></li>
                         <li class="scroll"><a href="/renter_history">История аренды</a></li>
-                        <li class="scroll only_for_authed"><a href="/landlord_analytics">Аналитика</a></li>
                         <li class="scroll only_for_authed"><a href="/my_housings">Жильё</a></li>
                         <li class="scroll only_for_authed"><a href="/logout">Выйти</a></li>
                     </ul>
@@ -40,11 +39,24 @@
     <div class="contain">
         <div class="i_space"></div>
         <h2 class="title">{{ user.username }}</h2>
-        <h3>История сдачи в аренду</h3>
+        <h3>Отчёт об аренде</h3>
         <p class="summary">
+            <h4>Общий доход за указанный период: {{ sum }} рублей</h4>
 
+            <hr>
+            <h5>Период: </h5>
+            <p>От: <input type="date" id="date_start" name="date_start" value="{{ date_start }}" min="2010-01-01" max="2050-12-31" disabled /></p>
+            <p>До: <input type="date" id="date_end" name="date_end" value="{{ date_end }}" min="2010-01-01" max="2050-12-31" disabled /></p>
         </p>
     </div>
+    <div class="contain_2">
+        <h4>Общий доход по недвижимостям</h4>
+        <div id='sum_pie'></div>
+
+        <h4>Средний доход по недвижимостям</h4>
+        <div id='avg_pie'></div>
+    </div>
+
     <div class="contain_2">
         {% for log in logs %}
             <div class="column">
@@ -66,9 +78,13 @@
                         <p class="i_summary">Дата конца аренды: {{ log.rent_end }}</p>
                     </div>
                 </div>
-            </div>
+
+        </div>
         {% endfor %}
     </div>
 </div>
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/plotly.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/analytic_report.js') }}"></script>
 </body>
 </html>
