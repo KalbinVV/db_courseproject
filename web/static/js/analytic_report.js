@@ -20,8 +20,8 @@ $(window).ready(function(){
             }]
 
             var layout = {
-                height: 400,
-                width: 500,
+                height: 600,
+                width: 800,
             };
 
             Plotly.newPlot('sum_pie', sum_data, layout);
