@@ -24,32 +24,29 @@ class User(db.Model):
     email: Mapped[str] = mapped_column(String(40), nullable=True)
     phone_number: Mapped[str] = mapped_column(String(20), nullable=True)
 
-    first_name: Mapped[str] = mapped_column(String(20), nullable=True)
-    second_name: Mapped[str] = mapped_column(String(20), nullable=True)
-
-    email_is_verified: Mapped[bool] = mapped_column(Boolean, default=False)
-    user_is_verified: Mapped[bool] = mapped_column(Boolean, default=False)
+    first_name: Mapped[str] = mapped_column(String(20), nullable=False)
+    second_name: Mapped[str] = mapped_column(String(20), nullable=False)
 
 
 class SettlementsTypes(db.Model):
     __tablename__ = 'settlements_types'
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    name: Mapped[str] = mapped_column(String(20), nullable=False)
+    name: Mapped[str] = mapped_column(String(20), nullable=False, unique=True)
 
 
 class Countries(db.Model):
     __tablename__ = 'countries'
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    name: Mapped[str] = mapped_column(String(80), nullable=False)
+    name: Mapped[str] = mapped_column(String(80), nullable=False, unique=True)
 
 
 class Settlements(db.Model):
     __tablename__ = 'settlements'
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    name: Mapped[str] = mapped_column(String(80), nullable=False)
+    name: Mapped[str] = mapped_column(String(80), nullable=False, unique=True)
 
     country_id: Mapped[int] = mapped_column(ForeignKey('countries.id', ondelete="CASCADE"), nullable=False, index=True)
     settlement_type_id: Mapped[int] = mapped_column(ForeignKey('settlements_types.id', ondelete="CASCADE"), nullable=False)
@@ -59,7 +56,7 @@ class StreetsTypes(db.Model):
     __tablename__ = 'streets_types'
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    name: Mapped[str] = mapped_column(String(20), nullable=False)
+    name: Mapped[str] = mapped_column(String(20), nullable=False, unique=True)
 
 
 class Streets(db.Model):
@@ -88,7 +85,7 @@ class HousingsTypes(db.Model):
     __tablename__ = 'housings_types'
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    name: Mapped[str] = mapped_column(String(40), nullable=False)
+    name: Mapped[str] = mapped_column(String(40), nullable=False, unique=True)
     description: Mapped[str] = mapped_column(String(100), nullable=False)
     icon: Mapped[str] = mapped_column(String(40), nullable=True)
     required_department_number: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
@@ -115,15 +112,15 @@ class Units(db.Model):
     __tablename__ = 'units'
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    name: Mapped[str] = mapped_column(String(30), nullable=False)
-    short_name: Mapped[str] = mapped_column(String(15), nullable=False)
+    name: Mapped[str] = mapped_column(String(30), nullable=False, unique=True)
+    short_name: Mapped[str] = mapped_column(String(15), nullable=False, unique=True)
 
 
 class Comforts(db.Model):
     __tablename__ = 'comforts'
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    name: Mapped[str] = mapped_column(String(40), nullable=False)
+    name: Mapped[str] = mapped_column(String(40), nullable=False, unique=True)
     description: Mapped[str] = mapped_column(String(100), nullable=False)
     unit_id: Mapped[int] = mapped_column(ForeignKey('units.id'), nullable=False)
 
@@ -177,6 +174,15 @@ class History(db.Model):
     CheckConstraint("rent_end > rent_start", name="history_rent_time_check")
 
     price: Mapped[int] = mapped_column(Integer, nullable=False)
+
+
+class Documents(db.Model):
+    __tablename__ = 'documents'
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+
+    history_id: Mapped[int] = mapped_column(ForeignKey('history.id', onupdate='CASCADE'), nullable=False)
+    file_path: Mapped[str] = mapped_column(String(30), nullable=False, unique=True)
 
 
 def create_triggers():

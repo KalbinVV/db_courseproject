@@ -3,7 +3,7 @@ import os.path
 from flask import Flask, render_template
 
 from models import db, create_triggers
-from pages import auth, users, profile, api, search
+from pages import auth, users, profile, api, search, documents
 from security import is_user_authed
 from utils.housings_utils import get_housings_statistic
 from utils.locations_utils import get_settlements, get_countries
@@ -68,6 +68,8 @@ def main() -> None:
         # Search section
         '/search': (search.search_page, ['GET']),
         '/get_search_results': (search.get_search_result, ['GET']),
+        # Documents
+        '/get_document': (documents.get_document, ['GET'])
     }
 
     for routing, args in pages_routing.items():

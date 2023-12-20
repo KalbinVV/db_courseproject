@@ -66,6 +66,7 @@
                         <p class="i_summary">Дата конца аренды: {{ log.rent_end }}</p>
                     </div>
                 </div>
+                <button style="color: black;" onclick="window.location.href='/get_document?history_id={{ log.id }}'">Скачать шаблон договора</button>
             </div>
         {% endfor %}
     </div>
