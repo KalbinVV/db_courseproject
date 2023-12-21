@@ -166,7 +166,7 @@ class History(db.Model):
 
     owner_id: Mapped[int] = mapped_column(ForeignKey('users.id'), index=True)
     renter_id: Mapped[int] = mapped_column(ForeignKey('users.id'), index=True)
-    housing_id: Mapped[int] = mapped_column(ForeignKey('housings.id'), index=True)
+    housing_id: Mapped[int] = mapped_column(ForeignKey('housings.id', ondelete='CASCADE'), index=True)
 
     rent_start: Mapped[datetime.datetime] = mapped_column(Date, nullable=False)
     rent_end: Mapped[datetime.datetime] = mapped_column(Date, nullable=False)
@@ -243,10 +243,63 @@ def create_triggers():
             FOR EACH ROW
             EXECUTE FUNCTION update_address_info_after_insert();''')
 
+    update_comforts_after_new = text('''\
+        CREATE OR REPLACE FUNCTION update_comforts_after_new()
+            RETURNS trigger AS
+            $$
+            DECLARE
+                housings_ids_list int[];
+                housing_id int;
+            BEGIN
+                SELECT array_agg(id) from housings into housings_ids_list;
+                
+                IF housings_ids_list IS NOT NULL THEN
+                
+                FOREACH housing_id IN ARRAY housings_ids_list
+                LOOP
+                    INSERT INTO comforts_association_table(comfort_id, housing_id, value)
+                    VALUES(NEW.id, housing_id, NEW.min_value);
+                END LOOP;
+                
+                END IF;
+
+                RETURN NEW;
+            END;
+            $$ LANGUAGE plpgsql;
+    ''')
+
+    update_comforts_after_new_trigger = text('''\
+                CREATE OR REPLACE TRIGGER on_new_comfort_insert AFTER INSERT ON comforts
+                FOR EACH ROW
+                EXECUTE FUNCTION update_comforts_after_new();''')
+
+    remove_housing_address_after_delete = text('''\
+        CREATE OR REPLACE FUNCTION remove_housing_address()
+            RETURNS trigger AS
+            $$
+            BEGIN
+                DELETE FROM addresses WHERE id = OLD.address_id;
+
+                RETURN OLD;
+            END;
+            $$ LANGUAGE plpgsql;
+    ''')
+
+    remove_housing_address_after_delete_trigger = text('''\
+                    CREATE OR REPLACE TRIGGER on_housing_remove AFTER DELETE ON comforts
+                    FOR EACH ROW
+                    EXECUTE FUNCTION remove_housing_address();''')
+
     db.session.execute(unique_address_trigger_function)
     db.session.execute(address_trigger)
 
     db.session.execute(update_address_info_after_insert)
     db.session.execute(update_address_info_after_insert_trigger)
+
+    db.session.execute(update_comforts_after_new)
+    db.session.execute(update_comforts_after_new_trigger)
+
+    db.session.execute(remove_housing_address_after_delete)
+    db.session.execute(remove_housing_address_after_delete_trigger)
 
     db.session.commit()
