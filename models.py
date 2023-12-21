@@ -181,7 +181,7 @@ class Documents(db.Model):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
 
-    history_id: Mapped[int] = mapped_column(ForeignKey('history.id', onupdate='CASCADE'), nullable=False)
+    history_id: Mapped[int] = mapped_column(ForeignKey('history.id', ondelete='CASCADE'), nullable=False)
     file_path: Mapped[str] = mapped_column(String(30), nullable=False, unique=True)
 
 
